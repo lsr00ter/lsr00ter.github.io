@@ -1,6 +1,9 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title: "Welcome to Jekyll!"
+# date: YYYY-MM-DD HH:MM:SS
+categories: []
+tags: []
 ---
 
 # Welcome

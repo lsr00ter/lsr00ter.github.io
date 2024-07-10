@@ -4,5 +4,8 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+# Memory Leak
+Pentester and bounty hunter.
+- Focus on some bug-bounty, malware development and red-team operator recently.
+
+- Certifications: CISP

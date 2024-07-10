@@ -53,11 +53,11 @@ app 下载后使用 `unzip target_app_name` 解压 app。
 2. 搜索并安装 **`CrackerXI`**
 3. 打开 App： **`CrackerXI`**
 4. 点击右上角设置图标，开启 `Hook`
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/getting-started-with-ios-testing-image.png" class="kg-image" alt loading="lazy" ></figure>
+<img src="assets/img/blog/imported/getting-started-with-ios-testing-image.png" class="kg-image" alt loading="lazy" >
 
 5. 主界面点击需要 Dump 的 App，选择 Full IPA
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/getting-started-with-ios-testing-image-1.png" class="kg-image" alt loading="lazy" ></figure>
+<img src="assets/img/blog/imported/getting-started-with-ios-testing-image-1.png" class="kg-image" alt loading="lazy" >
 
 6. Dump 的 IPA 文件保存在 `/var/mobile/Documents/CrackerXI/` 文件夹内
 

@@ -21,11 +21,11 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
     $ git branch testing
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200913205026.jpeg" class="kg-image" alt="Figure 3-4. 两个指向相同提交历史的分支" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200913205026.jpeg" class="kg-image" alt="Figure 3-4. 两个指向相同提交历史的分支" loading="lazy">
 
 这会在当前所在的提交对象上创建一个指针，新建的分支和原来的分支同时指向相同提交历史。Git 还存在一个名为 `HEAD` 的特殊指针，指向当前所在的本地分支。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202036.jpeg" class="kg-image" alt="Figure 3-5. HEAD指向当前所在分支" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202036.jpeg" class="kg-image" alt="Figure 3-5. HEAD指向当前所在分支" loading="lazy">
 
 使用`git log --decorate`查看各个分支当前所指的对象：
 
@@ -44,7 +44,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
 这时 `HEAD`就指向 `testing` 分支了。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202207.jpeg" class="kg-image" alt="Figure 3-6. HEAD 指向当前所在的分支" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202207.jpeg" class="kg-image" alt="Figure 3-6. HEAD 指向当前所在的分支" loading="lazy">
 
 再次修改并提交：
 
@@ -53,13 +53,13 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
 此时的提交历史如下：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202228.jpeg" class="kg-image" alt="Figure 3-7. HEAD 分支随着提交操作自动向前移动" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202228.jpeg" class="kg-image" alt="Figure 3-7. HEAD 分支随着提交操作自动向前移动" loading="lazy">
 
 此时切回 `master` 分支：
 
     $ git checkout master
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202241.jpeg" class="kg-image" alt="Figure 3-8. 检出时 HEAD 随之移动" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202241.jpeg" class="kg-image" alt="Figure 3-8. 检出时 HEAD 随之移动" loading="lazy">
 
 此时 `git checkout` 命令做了两件事：
 
@@ -75,7 +75,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
 此时项目提交历史已经分叉。新的提交历史看起来如下：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202253.jpeg" class="kg-image" alt="Figure 3-9. 项目分叉历史" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202253.jpeg" class="kg-image" alt="Figure 3-9. 项目分叉历史" loading="lazy">
 
 使用 `git log` 命令查看分叉历史：
 
@@ -111,7 +111,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
 假设现在的项目存在一些提交：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202302.jpeg" class="kg-image" alt="Figure 3-10. 一个简单的提交历史" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202302.jpeg" class="kg-image" alt="Figure 3-10. 一个简单的提交历史" loading="lazy">
 
 现在需要解决紧急问题#53，可以使用带 `-b` 参数的 `git checokout` 命令，新建分支同时切换到新分支：
 
@@ -123,14 +123,14 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
     $ git branch iss53
     $ git checkout iss53
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202311.jpeg" class="kg-image" alt="Figure 3-11. 创建一个新分支指针" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202311.jpeg" class="kg-image" alt="Figure 3-11. 创建一个新分支指针" loading="lazy">
 
 此时你针对 #53 问题进行了一些修改并提交，iss53 分支在不断推进：
 
     $ vim index.html
     $ git commit -a -m 'added a new footer[issue 53]'
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202339.jpeg" class="kg-image" alt="Figure 3-12. iss53 分支向前推进" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202339.jpeg" class="kg-image" alt="Figure 3-12. iss53 分支向前推进" loading="lazy">
 
 此时一个新的问题出现需要解决，需要我们新建一个针对该问题的分支（hotfix branch），并且解决问题：
 
@@ -143,7 +143,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
     
     1 file changed, 2 insertions(+)
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202353.jpeg" class="kg-image" alt="Figure 3-13. 基于 master 分支的紧急问题分支 hotfix" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202353.jpeg" class="kg-image" alt="Figure 3-13. 基于 master 分支的紧急问题分支 hotfix" loading="lazy">
 
 当测试完成后，需要将 hotfix 分支合并到 master 分支，来部署到线上。使用 `git merge` 命令来达到该目的：
 
@@ -159,7 +159,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
 本次合并中有一个 'Fast-forword' 关键词，意味着当前 master 分支所指的提交是现在提交 hotfix 分支的直接上游，此时 Git 只是简单的将指针向前移动。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202415.jpeg" class="kg-image" alt="Figure 3-14. master 被快进到 hotfix" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202415.jpeg" class="kg-image" alt="Figure 3-14. master 被快进到 hotfix" loading="lazy">
 
 这个紧急问题的解决方案发布之后，可以通过带 `-d` 选项的 `git branch` 命令来删除分支：
 
@@ -177,7 +177,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
     
     1 file changed, 1 insertion(+)
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202430.jpeg" class="kg-image" alt="Figure 3-15. 继续在 iss53 分支上工作" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202430.jpeg" class="kg-image" alt="Figure 3-15. 继续在 iss53 分支上工作" loading="lazy">
 ### 分支的合并
 
 运行下面命令，将 `iss53` 分支合并到 `master` 分支中：
@@ -188,7 +188,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
     index.html | 1 +
     1 file changed, 1 insertion(+)
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202513.jpeg" class="kg-image" alt="F3-16" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202513.jpeg" class="kg-image" alt="F3-16" loading="lazy">
 
 合并成功后可以删除 `iss53` 分支：
 
@@ -447,7 +447,7 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 
 整合分支最容易的方法是 `merge` 命令。它会将两个分支最新快照以及两者最近的共同祖先进行三方合并，生成一个新的快照（并提交）。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202549.jpeg" class="kg-image" alt="F 3-28" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202549.jpeg" class="kg-image" alt="F 3-28" loading="lazy">
 
 另一种方法：提取在 C4 分支中引入的补丁和修改，然后在 C3 的基础上再应用一次。这种操作叫 #变基#。使用 `rebase` 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新播放”一样。
 
@@ -462,14 +462,14 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 
 原理是：首先找到这两个分支（当前分支 `experiment`、变基操作的目标基底分支 `master`）的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 C3，最后以此将之前另存为临时文件的修改依序应用。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202605.jpeg" class="kg-image" alt="F 3-29" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202605.jpeg" class="kg-image" alt="F 3-29" loading="lazy">
 
 现在回到 `master` 分支，进行依次快进合并：
 
     $ git checkout master
     $ git merge experiment
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202617.jpeg" class="kg-image" alt="F 3-30" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202617.jpeg" class="kg-image" alt="F 3-30" loading="lazy">
 
 此时 C4' 指向的快照就跟上面使用 `merge` 命令的例子中 C5 指向的快照一模一样了。这两种整合方法最终结果没有任何区别，但是变基会使得提交历史更加整洁。
 
@@ -479,7 +479,7 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 
 下面例子是这样：在 `master` 分支上创建了一个特性分支 `server`，提交了 C3 和 C4。然后在 C3 上创建了特性分支 `client`,提交了 C8 和 C9。最后在 `server` 分支提交了 C10。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202629.jpeg" class="kg-image" alt="F 3-31" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202629.jpeg" class="kg-image" alt="F 3-31" loading="lazy">
 
 假设需要将 `client` 中的修改合并到 `master` 分支，但不需要合并 `server` 中的修改。可以使用 `git rebase` 命令的 `--onto` 选项，选中在 `client` 分支里但不在 `server` 分支里的修改（C8/C9），将它们在 `master` 分支上重演：
 
@@ -489,20 +489,20 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 
 执行后的效果如图：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202641.jpeg" class="kg-image" alt="F 3-32" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202641.jpeg" class="kg-image" alt="F 3-32" loading="lazy">
 
 现在可以进行快速合并了：
 
     $ git checkout master
     $ git merge client
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202650.jpeg" class="kg-image" alt="F 3-33" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202650.jpeg" class="kg-image" alt="F 3-33" loading="lazy">
 
 然后将 `server` 分支也整合进来：
 
     $ git rebase master server
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202702.jpeg" class="kg-image" alt="F 3-34" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202702.jpeg" class="kg-image" alt="F 3-34" loading="lazy">
 
 如图，`server` 的代码被“续”到了 `master` 后面
 
@@ -518,7 +518,7 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 
 最后的提交历史如图：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202713.jpeg" class="kg-image" alt="F 3-35" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202713.jpeg" class="kg-image" alt="F 3-35" loading="lazy">
 ### 变基的风险
 
 不要对在你的仓库外有副本的分支执行变基，会使提交记录变得混乱。

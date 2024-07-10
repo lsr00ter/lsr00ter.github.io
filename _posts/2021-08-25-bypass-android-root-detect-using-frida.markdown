@@ -42,7 +42,7 @@ crash 信息中有用的部分：
 
 代码中找到该模块：
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/bypass-android-root-detect-using-frida-DraggedImage.png" class="kg-image" alt loading="lazy"></figure>
+<img src="assets/img/blog/imported/bypass-android-root-detect-using-frida-DraggedImage.png" class="kg-image" alt loading="lazy">
 
     public class EsApplication extends Application {
         private void appSecurityCheck(String arg3) {

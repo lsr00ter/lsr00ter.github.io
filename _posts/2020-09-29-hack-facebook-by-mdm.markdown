@@ -11,7 +11,7 @@ tags:
 
 使用 Google Search 在一个公开网站根目录找到疑似开发商测试用的 RPM 包
 
-<figure class="kg-card kg-image-card"><img src="https://devco.re/assets/img/blog/20200912/1.png" class="kg-image" alt loading="lazy"></figure>
+<img src="https://devco.re/assets/img/blog/20200912/1.png" class="kg-image" alt loading="lazy">
 
 下载的版本是 2018 年初版。
 
@@ -23,7 +23,7 @@ MobileIron 使用 Java 开发，对外开放 443，8443， 9997 端口，各个�
 
 三个端口都使用 TLS 保证安全性，网页部分则是通过 Apache Reverse Proxy 架构连接到后端，由 Tomcat 部署的网页应用处理，网页应用由 Spring MVC 开发。
 
-<figure class="kg-card kg-image-card"><img src="https://devco.re/assets/img/blog/20200912/2.png" class="kg-image" alt loading="lazy"></figure>
+<img src="https://devco.re/assets/img/blog/20200912/2.png" class="kg-image" alt loading="lazy">
 
 由于使用的技术相对较新，传统漏洞如 SQL Injection 比较难从单一的点来发现，因此转向理解程序逻辑，并配合框架层面的攻击。
 
@@ -126,4 +126,4 @@ Web Service 使用了 Hessian 格式处理资料，而产生了反序列化漏�
 
 最后攻击成功，取得 Facebook 服务器上的 Shell。
 
-<figure class="kg-card kg-image-card"><img src="https://img.youtube.com/vi/hGTLIIOb14A/0.jpg" class="kg-image" alt="MobileIron MDM unauthenticated REC" loading="lazy"></figure>
+<img src="https://img.youtube.com/vi/hGTLIIOb14A/0.jpg" class="kg-image" alt="MobileIron MDM unauthenticated REC" loading="lazy">

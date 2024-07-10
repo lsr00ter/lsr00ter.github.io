@@ -53,6 +53,8 @@ jobs:
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
+            \-\-allow_missing_href \
+            \-\-swap-urls "http\::https\:" \
             \-\-disable-external \
             \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
 

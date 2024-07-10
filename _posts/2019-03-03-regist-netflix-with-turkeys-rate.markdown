@@ -23,20 +23,20 @@ tags:
 
 这里默认你已经安装了 [Chrome](https://www.google.com/chrome/) 以及 [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif) ，然后开启代理，访问网站 [http://free-proxy.cz](http://free-proxy.cz/)，找到土耳其地区的代理:
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/choice_proxy.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/choice_proxy.jpg" class="kg-image" alt loading="lazy">
 
 并在 Proxy SwitchyOmega 中设置:
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/setting_proxy_1.jpg" class="kg-image" alt loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/setting_proxy_2.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/setting_proxy_1.jpg" class="kg-image" alt loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/setting_proxy_2.jpg" class="kg-image" alt loading="lazy">
 
 打开 [ifconfig.co](http://ifconfig.co) 并确定 country 部分是 turkey :
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/setting_proxy_3.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/setting_proxy_3.jpg" class="kg-image" alt loading="lazy">
 ## 2. 注册 Netflix
 
 打开 [Netflix](http://www.netflix.com)，网站会自动识别并打开土耳其区的官网，点击 **WATCH FREE FOR 30 DAYS** ：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_1.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_1.jpg" class="kg-image" alt loading="lazy">
 1. 选择套餐，合租的话推荐第三个套餐，可以开四个子帐号，四人一起最便宜。具体套餐对比如下：
 <!--kg-card-begin: html-->
 
@@ -45,18 +45,18 @@ tags:
 | 不支持HD （画质达不到 720p） | 最高支持HD （最高 1080p） | 最高支持 Ultra HD (4K) |
 | 最多1个屏幕同时播放 | 最多2个屏幕同时播放 | 最多4个屏幕同时播放 |
 
-<!--kg-card-end: html--><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_2.jpg" class="kg-image" alt loading="lazy"></figure>
+<!--kg-card-end: html--><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_2.jpg" class="kg-image" alt loading="lazy">
 
 创建帐号，输入邮箱及密码，下方的”不给我发送 Netflix 推荐内容邮件“可以按需选择
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_3.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_3.jpg" class="kg-image" alt loading="lazy">
 1. 添加支付信息，土耳其区支持 VISA MASTER AE 三种信用卡和礼品卡进行支付，不支持 PayPal。国内比较常用的就是 VISA MASTER 的双币或者单币信用卡了，确定后会收到1土耳其币的扣款，用于验证，实际不扣款，无需担心。虽然填写了信用卡信息，但信用卡号不会完整显示在账户，更改信用卡信息时也不会显示之前完整的信用卡信息，所以合租时，不必担心信用卡信息泄露。  
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_4.jpg" class="kg-image" alt loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_5.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_4.jpg" class="kg-image" alt loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/regist_netflix_5.jpg" class="kg-image" alt loading="lazy">
 
 设置新账户，搞定！（观看时记得切换到可以看的代理，之前注册使用的土耳其代理应该是不行的）
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/watch_1.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/watch_1.jpg" class="kg-image" alt loading="lazy">
 
 合租：高级账户支持设置4个子账户和一个儿童账户，每个子账户相互独立，观看记录和喜好推荐都是完全分开的，合租时使用同一个帐号密码登录，然后选择不同的子账户进行观看，互不影响。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/watch_2.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/regist_turkey_netflix/watch_2.jpg" class="kg-image" alt loading="lazy">

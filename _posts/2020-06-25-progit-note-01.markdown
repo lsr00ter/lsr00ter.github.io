@@ -42,7 +42,7 @@ Git 项目的三个工作区域：Git 仓库、工作目录以及暂存区域。
 - Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。从其他计算机克隆仓库时，拷贝的就是这里的数据
 - 工作目录是对项目的某个版本独立提取出来的内容，从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供使用或修改
 - 暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。有时也被称作“索引”
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200625111105.jpeg" class="kg-image" alt="Figure 1-6.jpeg" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200625111105.jpeg" class="kg-image" alt="Figure 1-6.jpeg" loading="lazy">
 
 基本的 Git 工作流程：
 

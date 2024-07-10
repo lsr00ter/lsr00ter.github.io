@@ -27,7 +27,7 @@ tags:
 
 Discourse 官方推荐配置最低为 2GB 内存，所以如果你的主机是 1GB 内存的话，需要创建一个 2GB 的 swapfile。
 
-创建教程请参考我的另一篇文章[《在 Linux 中设置和修改 swap 空间》]( __GHOST_URL__ /2019/07/24/2019-07-22-add-or-resize-swapfile-size/)。
+创建教程请参考我的另一篇文章[《在 Linux 中设置和修改 swap 空间》]({% post_url 2019-07-22-add-or-resize-swapfile-size %})。
 
 ## 安装 Docker
 
@@ -140,8 +140,8 @@ Discourse 给人的感觉就是很新，很简洁：
 
 _部分摘自`知乎：黎欣健`_
 
-> 参考  
-> [https://meta.discourse.org/t/running-discourse-with-caddy-server/54716](https://meta.discourse.org/t/running-discourse-with-caddy-server/54716)  
-> [https://www.vultr.com/docs/install-discourse-on-centos-7](https://www.vultr.com/docs/install-discourse-on-centos-7)  
+> 参考
+> [https://meta.discourse.org/t/running-discourse-with-caddy-server/54716](https://meta.discourse.org/t/running-discourse-with-caddy-server/54716)
+> [https://www.vultr.com/docs/install-discourse-on-centos-7](https://www.vultr.com/docs/install-discourse-on-centos-7)
 > [https://github.com/discourse/discourse/blob/master/docs/INSTALL-email.md](https://github.com/discourse/discourse/blob/master/docs/INSTALL-email.md)
 

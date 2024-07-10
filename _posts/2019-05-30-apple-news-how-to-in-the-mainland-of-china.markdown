@@ -7,11 +7,11 @@ tags:
 - hash-import-2023-03-22-16-36
 ---
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591143208187.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591143208187.jpg" class="kg-image" alt loading="lazy">
 
 Apple News 是苹果在 iOS 和 macOS （10.14及之后的版本）设备上自带的新闻软件。目前仅在美国、英国和澳大利亚运营。它不生产内容，只搭建平台，方便各大媒体和内容创作者在上面提供内容。可以将其理解为更加开放些的微信公众平台或者今日头条。但是就目前来看，美区基本都是传统媒体和影响力较大的媒体接入。Apple News 的优势在于因为内容发布在同一平台，内容格式相对一致，用户体验极好。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/IMG_1465.jpg" class="kg-image" alt="IMG_1465" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/IMG_1465.jpg" class="kg-image" alt="IMG_1465" loading="lazy">
 
 上图是 Apple News iPhone 版本的展示。  
 一共有三栏：
@@ -65,7 +65,7 @@ Apple News 针对中国地区做了特殊的限制，iOS 设备会检测是不�
 
 启用 Apple News
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591398086835.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591398086835.jpg" class="kg-image" alt loading="lazy">
 
 macOS 需升级到10.14 macOS Mojave。MacOS 上仅需要在 `系统设置-语言与地区` 中将地区更改为 `美国`，Apple News 就会出现在应用页面。若仍未出现，可以在 `应用程序` 文件夹中查看到，按住拖到 Dock 栏方便使用。
 
@@ -80,7 +80,7 @@ macOS 需升级到10.14 macOS Mojave。MacOS 上仅需要在 `系统设置-语�
 清除地理位置缓存  
 点开 Apple News，很可能还会提示该地区不支持。这是需要在设置中将保存的地理位置信息清除。具体位置在`System Preference -> Security & Privacy -> Location Service -> System Services -> Details -> Significant Locations -> Details`，点击 `Clear History` 即可清除。 **这个步骤需要将左下角的锁打开** 。关闭并重新打开 Apple News 即可。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591396528920.jpg" class="kg-image" alt loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591396704093.jpg" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591396528920.jpg" class="kg-image" alt loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591396704093.jpg" class="kg-image" alt loading="lazy">
 
 Trouble Shooting
 
@@ -92,7 +92,7 @@ Trouble Shooting
 Apple News 的繁琐步骤能劝退很多人。  
 如果在国内对杂志数量有很高要求，可以使用如 Scribd、Kindle Unlimited 这些代替服务，或者 Calibre 的新闻下载功能；如果你只是固定关注特定几种刊物，有很大概率可以直接在官网免费读到多数纸刊文章，或者通过比较低廉的价格在亚马逊等平台上订阅。另外，图书馆往往会提供非常丰富的数字资源。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591422876001.png" class="kg-image" alt loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591422876001.png" class="kg-image" alt loading="lazy">
 
 > 在发布会上，库克提到「站在书报亭前的满足感」，并以此为喻引出对 Apple News+ 的介绍。这是一个恰如其分的比喻——Apple News+ 的功用确实是，但同时也只是把书报亭搬到了用户面前。但究竟是能从中获取更广博的视野、更高质量的阅读材料，抑或是止步于视觉上的饱足和坐拥无限资源的富余感，就是我们身为读者只能自负其责的问题了。  
 > -- via: Neverland

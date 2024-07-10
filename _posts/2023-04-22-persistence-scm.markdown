@@ -18,7 +18,7 @@ SCM 是 Windows 操作系统中的服务控制管理器（Service Control Manage
 
     sc sdshow scmanager
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-scm-sc-sdshow-scmanager.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 安全描述符"></figure>
+<img src="assets/img/blog/imported/persistence-scm-sc-sdshow-scmanager.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 安全描述符">
 
 也可以用 PowerShell 枚举所有用户组的 SDDL 权限并将其转换为可读格式。
 
@@ -27,19 +27,19 @@ SCM 是 Windows 操作系统中的服务控制管理器（Service Control Manage
     $SecurityDescriptor = ConvertFrom-SddlString -Sddl $sddl
     $SecurityDescriptor.DiscretionaryAcl
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-scm-powershell-enum-and-convert-sddl.png" class="kg-image" alt loading="lazy" title="通过 PowerShell 枚举权限"></figure>
+<img src="assets/img/blog/imported/persistence-scm-powershell-enum-and-convert-sddl.png" class="kg-image" alt loading="lazy" title="通过 PowerShell 枚举权限">
 
 下面的命令将枚举“scmanager”实用程序的权限，并显示相关的 SDDL 权限。
 
     sc sdshow scmanager showrights
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-scm-sc-sdshow-scmanager-showrights.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 枚举权限"></figure>
+<img src="assets/img/blog/imported/persistence-scm-sc-sdshow-scmanager-showrights.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 枚举权限">
 
 普通用户无法在 Windows 环境中创建服务。这个权限仅属于高权限用户，如本地管理员。但是，修改服务控制管理器的安全描述符权限可以允许任何用户创建一个在 SYSTEM 权限运行的服务。使用安全描述符定义语言，可以通过执行以下命令来修改这些权限：
 
     sc.exe sdset scmanager D:(A;;KA;;;WD)
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-scm-sc-sdset.png" class="kg-image" alt loading="lazy" title="修改安全描述符权限"></figure>
+<img src="assets/img/blog/imported/persistence-scm-sc-sdset.png" class="kg-image" alt loading="lazy" title="修改安全描述符权限">
 
 下表显示了上述命令中 SDDL 缩写的含义。
 
@@ -65,12 +65,12 @@ Everyone 组的安全策略 |
 
     sc create persistence-scm displayName="persistence-scm" binPath="C:\temp\persistence-scm.exe" start=auto
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-scm-sc-create.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 标准用户创建新服务"></figure>
+<img src="assets/img/blog/imported/persistence-scm-sc-create.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 标准用户创建新服务">
 
 新服务将出现在 Windows 服务列表中。
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-scm-check-sc-list.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 新服务"></figure>
+<img src="assets/img/blog/imported/persistence-scm-check-sc-list.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - 新服务">
 
 当系统重新启动时，服务将自动启动，并使用系统权限执行 payload。
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-scm-get-pwned.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - Cobaltstrke"></figure>
+<img src="assets/img/blog/imported/persistence-scm-get-pwned.png" class="kg-image" alt loading="lazy" title="服务控制管理器 - Cobaltstrke">

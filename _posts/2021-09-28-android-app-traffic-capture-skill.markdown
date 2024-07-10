@@ -15,7 +15,7 @@ tags:
 - 代理地址 192.168.1.100:8080
 
 ### 0x00 设备上设置代理
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/android-app-traffic-capture-skill-merge.png" class="kg-image" alt loading="lazy"></figure>
+<img src="assets/img/blog/imported/android-app-traffic-capture-skill-merge.png" class="kg-image" alt loading="lazy">
 ### 0x01 配置 Proxy Listener
 
 在 Burpsuite 上依次点击 `Proxy -> Options -> Edit (Proxy Listeners)` 然后设置监听接口和监听端口：
@@ -23,12 +23,12 @@ tags:
     Bind to port: 8080
     Bind to address: All interfaces
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/android-app-traffic-capture-skill-DraggedImage.png" class="kg-image" alt loading="lazy"></figure>
+<img src="assets/img/blog/imported/android-app-traffic-capture-skill-DraggedImage.png" class="kg-image" alt loading="lazy">
 ### 0x02 检查设备是否成功连接代理
 
 在设备上用浏览器打开 [http://burp](http://burp) 应该会看到 Burpsuite 的欢迎页面：
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/android-app-traffic-capture-skill-image.png" class="kg-image" alt loading="lazy" ></figure>
+<img src="assets/img/blog/imported/android-app-traffic-capture-skill-image.png" class="kg-image" alt loading="lazy" >
 
 如果加载失败，下面是几种解决的思路：
 

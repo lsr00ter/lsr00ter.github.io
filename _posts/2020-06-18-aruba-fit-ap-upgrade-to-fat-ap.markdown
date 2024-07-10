@@ -14,7 +14,7 @@ tags:
 
 查看 aruba 官网相应版本的说明书（`AP-XXX_Install_Guide.pdf`），找到相应的 `Console Port` 说明信息，再查找推荐的 `AP-CBL-SERU cable` 信息，根据文档里的 `CONNECTOR` 去淘宝找相应的型号，根据文档提供的线序购买。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618174916.jpg" class="kg-image" alt="查询 Installation Guide" loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175122.jpg" class="kg-image" alt="查看 Console Port 支持的线缆" loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175155.jpg" class="kg-image" alt="查询相关线缆" loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175252.jpg" class="kg-image" alt="查看线缆线序和新片" loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175301.jpeg" class="kg-image" alt="购买 Console 线" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618174916.jpg" class="kg-image" alt="查询 Installation Guide" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175122.jpg" class="kg-image" alt="查看 Console Port 支持的线缆" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175155.jpg" class="kg-image" alt="查询相关线缆" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175252.jpg" class="kg-image" alt="查看线缆线序和新片" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175301.jpeg" class="kg-image" alt="购买 Console 线" loading="lazy">
 ## 准备软件和资料
 
 - Serial（串口）连接软件（Windows: [Putty](https://www.chiark.greenend.org.uk/%7Esgtatham/putty/latest.html); macOS: [Serial.app](https://www.decisivetactics.com/products/serial/)）
@@ -23,12 +23,12 @@ tags:
 - 将固件移动到 TFTP Server 的根目录下，如 SolarWinds TFTP Server 的 `C:\TFTP-Root`
 - **重要** ：关闭电脑防火墙
 - 启动 SolarWinds TFTP Server ，显示如下：
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175437.jpg" class="kg-image" alt="SolarWinds TFTP Server" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175437.jpg" class="kg-image" alt="SolarWinds TFTP Server" loading="lazy">
 ## 启动 AP
 
 （使用的软件以 Windows 平台为例）首先断开 AP 的电源，把 AP 通过串口连接到电脑上，等待提示驱动安装成功后，打开 Putty，选择连接方式为 `Serial`，按照`开始菜单（右键） - 设备管理器`中显示的串口号，选择连接的串口，如 `COM1`，点击 `Open` 打开：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/2020/06/DeviceMgr.jpg" class="kg-image" alt="查看设备的串口号" loading="lazy"></figure><figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175335.jpg" class="kg-image" alt="Putty 配置" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/2020/06/DeviceMgr.jpg" class="kg-image" alt="查看设备的串口号" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175335.jpg" class="kg-image" alt="Putty 配置" loading="lazy">
 
 然后把 AP 接上电源，等待窗口中出现如下字符：
 
@@ -42,7 +42,7 @@ tags:
 
 将 AP 通过网线连接到电脑，在电脑上设置相关接口为固定 IP 地址，如 `192.168.2.10`：
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175402.jpg" class="kg-image" alt="和 AP 连接的网卡 IP 配置" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175402.jpg" class="kg-image" alt="和 AP 连接的网卡 IP 配置" loading="lazy">
 
 然后开始设置 AP 的地址和 TFTP 服务器
 
@@ -105,4 +105,4 @@ tags:
 
 设置完毕，将 AP 连接到路由器上就可以正常使用了。
 
-<figure class="kg-card kg-image-card"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175509.jpg" class="kg-image" alt="Overview" loading="lazy"></figure>
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175509.jpg" class="kg-image" alt="Overview" loading="lazy">

@@ -1,11 +1,12 @@
 #!/bin/bash
+set -e
 filename=$(date +%Y-%m-%d-new-post.md)
 if [ $# -gt 0 ]; then
-  filename=$(date +%Y-%m-%d-)
-  title=$(echo "$@")
-  filename+=$(echo "$@" | sed -e 's/ /-/g').md
+    filename=$(date +%Y-%m-%d-)
+    title=$(echo "$@")
+    filename+=$(echo "$@" | sed -e 's/ /-/g').md
 else
-  filename=$(date +%Y-%m-%d-new-post.md)
+    filename=$(date +%Y-%m-%d-new-post.md)
 fi
 cat >$filename <<EOF
 ---

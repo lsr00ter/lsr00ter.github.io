@@ -3,6 +3,7 @@ layout: post
 title: Linux 持久化 - udev
 description: Leveraging Linux udev for persistence
 date: '2024-06-07 08:29:39'
+categories: ["persistence"]
 tags: ["persistence", "linux"]
 ---
 
@@ -113,7 +114,7 @@ msf6 exploit(multi/handler) > run
 [*] Meterpreter session 1 opened (10.211.55.2:4444 -> 10.211.55.14:52043) at 2024-08-26 23:26:31 -0400
 ```
 
-![](assets/img/blog/linux-persistence-with-udev-sysinfo.png)
+![fetch vivtim's sysinfo](assets/img/blog/linux-persistence-with-udev-sysinfo.png)
 
 ## 利用工具 USP
 >

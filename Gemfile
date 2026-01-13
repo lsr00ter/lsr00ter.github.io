@@ -6,6 +6,9 @@ gem "jekyll-theme-chirpy", "~> 7.0", ">= 7.0.1"
 gem 'jekyll-compose', group: [:jekyll_plugins]
 gem 'jekyll-sitemap'
 gem 'jekyll-seo-tag'
+gem "logger"
+gem "csv"
+gem "base64"
 
 group :test do
   gem "html-proofer", "~> 5.0"

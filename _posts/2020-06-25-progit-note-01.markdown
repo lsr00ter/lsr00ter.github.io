@@ -2,11 +2,8 @@
 layout: post
 title: progit 笔记 01 - 了解 Git
 date: '2020-06-25 06:19:00'
-tags:
-- git
-- progit
-- note
-- hash-import-2023-03-22-16-36
+categories: ["dev", "git"]
+tags: ["git", "progit", "note"]
 ---
 
 本部分主要介绍了 Git 的逻辑、特点、处理文件的方式、工作流程以及基本的配置。
@@ -79,17 +76,17 @@ Git 自带一个 `git config` 的工具来帮助控制 Git 的外观和行为的
 
     $ git config --list
     user.name=John Doe
-    
+
     user.email=johndoe@example.com
-    
+
     color.status=auto
-    
+
     color.branch=auto
-    
+
     color.interactive=auto
-    
+
     color.diff=auto
-    
+
     ...
 
 可能会出现重复的变量名，因为 Git 会从不同的文件中读取同一个配置（例如从 `/tec/gitconfig` 与 `~/.gitconfig`）。这时 Git 会使用它找到的每一个变量的最后一个配置。

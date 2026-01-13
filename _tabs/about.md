@@ -14,7 +14,7 @@ Pentester and bug bounty hunter.
 
 ## CVEs
 
-- [blank](#)
+- [RESERVED](#)
 
 ## Tools
 

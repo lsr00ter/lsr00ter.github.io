@@ -2,9 +2,8 @@
 layout: post
 title: 在 Linux 中设置和修改 swap 空间
 date: '2019-07-22 06:10:00'
-tags:
-- linux
-- hash-import-2023-03-22-16-36
+categories: ["sysadmin", "linux"]
+tags: ["linux"]
 ---
 
 ## 启用 swap
@@ -39,7 +38,7 @@ tags:
 
     swapon -s
 
-## 修改swap大小
+## 修改 swap 大小
 
 关闭 swap
 
@@ -49,10 +48,10 @@ tags:
 
     sudo dd if=/dev/zero of=/swapfile bs=1M count=1024
 
-bs 指的是 Block Size，就是每一块的大小。这里的例子是 1M，意思就是 count 的数字，是以 1M 为单位的。  
+bs 指的是 Block Size，就是每一块的大小。这里的例子是 1M，意思就是 count 的数字，是以 1M 为单位的。
 counter 是告诉程序，新的 swapfile 要多少个 block。这里是 1024，就是说，新的 swap 文件是 1G 大小。
 
-把增大后的文件变为swap文件。
+把增大后的文件变为 swap 文件。
 
     sudo mkswap /swapfile
 

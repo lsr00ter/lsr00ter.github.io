@@ -2,18 +2,15 @@
 layout: post
 title: 在 CentOS 7 上搭建 MediaWiki/Caddy
 date: '2019-08-03 06:13:00'
-tags:
-- centos
-- caddy
-- mediawiki
-- hash-import-2023-03-22-16-36
+categories: ["sysadmin", "mediawiki"]
+tags: ["centos", "caddy", "mediawiki"]
 ---
 
 一个标准安装的 MediaWiki 除软件自身以外，还需要安装下列环境：
 
 - Web 服务器。用于服务客户端浏览器的请求。
 - PHP 运行环境。
-- 数据库服务器。用于储存网站页面与数据。  
+- 数据库服务器。用于储存网站页面与数据。
 除上述必需的环境以外，还有若干可选依赖，如果你需要使用一些高级功能则需要安装这些依赖。
 
 ## 安装 php、mariadb
@@ -29,10 +26,10 @@ tags:
 ## 配置数据库
 
     sudo systemctl start mariadb.service
-    
+
     # 执行 mysql_secure_installation 命令，配置 MariaDB 安全权限：
     mysql_secure_installation
-    
+
     # 执行完成后登录 MariaDB，初始化 MediaWiki 数据库
     CREATE USER 'wiki'@'localhost' IDENTIFIED BY 'InputPasswordHere';
     CREATE DATABASE wiki;

@@ -2,11 +2,8 @@
 layout: post
 title: progit 笔记 03 - 分支功能
 date: '2020-09-18 06:22:00'
-tags:
-- git
-- progit
-- note
-- hash-import-2023-03-22-16-36
+categories: ["dev", "git"]
+tags: ["git", "progit", "note"]
 ---
 
 本部分主要介绍 Git 的分支功能。
@@ -25,15 +22,15 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
 这会在当前所在的提交对象上创建一个指针，新建的分支和原来的分支同时指向相同提交历史。Git 还存在一个名为 `HEAD` 的特殊指针，指向当前所在的本地分支。
 
-<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202036.jpeg" class="kg-image" alt="Figure 3-5. HEAD指向当前所在分支" loading="lazy">
+<img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202036.jpeg" class="kg-image" alt="Figure 3-5. HEAD 指向当前所在分支" loading="lazy">
 
 使用`git log --decorate`查看各个分支当前所指的对象：
 
     $ git log --oneline --decorate
     f30ab (HEAD, master, testing) add feature #32 - ability to add new
-    
+
     34ac2 fixed bug #1328 - stack overflow under certain conditions
-    
+
     98ca9 initial commit of my project
 
 ### 分支切换
@@ -81,15 +78,15 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
     $ git log --oneline --decorate --graph --all
     * c2b9e (HEAD, master) made other changes
-    
+
     | * 87ab2 (testing) made a change
-    
+
     |/
-    
+
     * f30ab add feature #32 - ability to add new formats to the
-    
+
     * 34ac2 fixed bug #1328 - stack overflow under certain conditions
-    
+
     * 98ca9 initial commit of my project
 
 ## 分支的新建与合并
@@ -136,11 +133,11 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
     $ git checkout -b hotfix
     Switched to a new branch 'hotfix'
-    
+
     $ vim index.html
     $ git commit -a -m 'fixed the broken email address'
     [hotfix 1fb7853] fixed the broken email address
-    
+
     1 file changed, 2 insertions(+)
 
 <img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202353.jpeg" class="kg-image" alt="Figure 3-13. 基于 master 分支的紧急问题分支 hotfix" loading="lazy">
@@ -150,11 +147,11 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
     $ git checkout master
     $ git merge hotfix
     Updating f42c576..3a0874c
-    
+
     Fast-forward
-    
+
     index.html | 2 ++
-    
+
     1 file changed, 2 insertions(+)
 
 本次合并中有一个 'Fast-forword' 关键词，意味着当前 master 分支所指的提交是现在提交 hotfix 分支的直接上游，此时 Git 只是简单的将指针向前移动。
@@ -166,15 +163,15 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
     $ git branch -d hotfix
     Deleted branch hotfix (3a0874c).
 
-现在可以切换回原来工作的分支（针对#53问题的分支）：
+现在可以切换回原来工作的分支（针对#53 问题的分支）：
 
     $ git checkout iss53
     Switched to branch "iss53"
-    
+
     $ vim index.html
     $ git commit -a -m 'finished the new footer [issue 53]'
     [iss53 ad82d7a] finished the new footer [issue 53]
-    
+
     1 file changed, 1 insertion(+)
 
 <img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200918202430.jpeg" class="kg-image" alt="Figure 3-15. 继续在 iss53 分支上工作" loading="lazy">
@@ -199,59 +196,59 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 如果在合并时产生合并冲突：
 
     $ git merge iss53
-    
+
     Auto-merging index.html
-    
+
     CONFLICT (content): Merge conflict in index.html
-    
+
     Automatic merge failed; fix conflicts and then commit the result.
 
 检查 `git status` 时会显示如下：
 
     $ git status
-    
+
     On branch master
-    
+
     You have unmerged paths.
-    
+
       (fix conflicts and run "git commit")
-    
-    
-    
+
+
+
     Unmerged paths:
-    
+
       (use "git add <file>..." to mark resolution)
-    
-    
-    
+
+
+
         both modified: index.html
-    
-    
-    
+
+
+
     no changes added to commit (use "git add" and/or "git commit -a")
 
 出现冲突的文件会包含一些特殊区段，类似：
 
     <<<<<<< HEAD:index.html
-    
+
     <div id="footer">contact : email.support@github.com</div>
-    
+
     =======
-    
+
     <div id="footer">
-    
+
     please contact us at support@github.com
-    
+
     </div>
-    
+
     >>>>>>> iss53:index.html
 
-这表示 HEAD所指示的版本在这个区域的上半部分（====的上半部分），而 iss53 分支所指示的版本在====的下班部分。你必须选择其中那个一个，或者你也可以自行合并这些内容，比如将该部分替换为下面内容来解决冲突：
+这表示 HEAD 所指示的版本在这个区域的上半部分（====的上半部分），而 iss53 分支所指示的版本在====的下班部分。你必须选择其中那个一个，或者你也可以自行合并这些内容，比如将该部分替换为下面内容来解决冲突：
 
     <div id="footer">
-    
+
     please contact us at email.support@github.com
-    
+
     </div>
 
 也可以使用图形化的工具来解决冲突，比如运行 `git mergetool` 启动一个合适的图形化工具：
@@ -261,19 +258,19 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 等待退出图形化工具之后，Git 会讯问是否合并成功。如果回答是，Git 会暂存文件表明冲突已解决。可以运行 `git status` 来确认所有的合并冲突都已被解决：
 
     $ git status
-    
+
     On branch master
-    
+
     All conflicts fixed but you are still merging.
-    
+
       (use "git commit" to conclude merge)
-    
-    
-    
+
+
+
     Changes to be committed:
-    
-    
-    
+
+
+
         modified: index.html
 
 如果结果正确，并且之前有冲突的文件都已暂存，就可以使用 `git commit` 来提交合并了。
@@ -292,27 +289,27 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 运行 `git branch -v` 查看每个分支的最后一次提交：
 
     $ git branch -v
-    
+
       iss53 93b412c fix javascript issue
-    
+
     * master 7a98805 Merge branch 'iss53'
-    
+
       testing 782fd34 add scott to the author list in the readmes
 
 使用带有 `--merged` 和 `--no-merged` 选项来过滤已经合并或尚未合并的分支：
 
     $ git branch --merged
-    
+
       iss53
-    
+
     * master
 
 使用 `git branch -d` 删除未合并的分支会提示失败：
 
     $ git branch -d testing
-    
+
     error: The branch 'testing' is not fully merged.
-    
+
     If you are sure you want to delete it, run 'git branch -D testing'.
 
 如果确实需要删除分支，可以使用 `-D` 选项强制删除。
@@ -321,7 +318,7 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 
 远程引用是对远程仓库的引用（指针），包括分支、标签等等。可以通过 `git ls-remote` 来显式的获取远程引用的完整版本，或者通过 `git remote show` 获得远程分支的更多信息。
 
-远程分支以(remote)/(branch)形式命名。例如查看最后一次与远程仓库 `origin` 通信时 `master` 分支的状态，可以查看 `origin/master` 分支。
+远程分支以 (remote)/(branch) 形式命名。例如查看最后一次与远程仓库 `origin` 通信时 `master` 分支的状态，可以查看 `origin/master` 分支。
 
 如果有一个 `git.ourcompany.com` 的 Git 服务器，从这里克隆一个项目，Git 的 `clone` 命令会将其自动名 `origin`，拉取它的所有数据，创建一个指向它的 `master` 分支的指针，并且在本地将其命名为 `origin/master`。Git 也会创建一个与 `origin` 的 `master` 分支指向同一个地方的本地 `master` 分支，这样就可以在此基础上工作了。
 
@@ -336,19 +333,19 @@ Git 的分支，本质上仅仅是指向提交对象的可变指针。Git 的默
 如果希望推送 `serverfix` 分支，运行命令：
 
     $ git push origin serverfix
-    
+
     Counting objects: 24, done.
-    
+
     Delta compression using up to 8 threads.
-    
+
     Compressing objects: 100% (15/15), done.
-    
+
     Writing objects: 100% (24/24), 1.91 KiB | 0 bytes/s, done.
-    
+
     Total 24 (delta 2), reused 0 (delta 0)
-    
+
     To https://github.com/schacon/simplegit
-    
+
     * [new branch] serverfix -> serverfix
 
 Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads/serverfix`，上面命令就意味着：推送本地的 serverfix 分支来更新远程的 serverfix 分支。如果需要为远程仓库上的分支使用不同的名称，可以运行 `git push origin serverfix:awesomebranch` 来将本地的 `serverfix` 分支推送到远程仓库上的 `awesomebranch` 分支。
@@ -356,25 +353,25 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 下一次其他协作者从服务器上抓取数据时，会在本地生成一个远程分支 `origin/serverfix`，指向服务器的 `serverfix` 分支的引用：
 
     $ git fetch origin
-    
+
     remote: Counting objects: 7, done.
-    
+
     remote: Compressing objects: 100% (2/2), done.
-    
+
     remote: Total 3 (delta 0), reused 3 (delta 0)
-    
+
     Unpacking objects: 100% (3/3), done.
-    
+
     From https://github.com/schacon/simplegit
-    
+
     * [new branch] serverfix -> origin/serverfix
 
 当抓取到新的远程跟踪分支时，本地不会自动生成一份可编辑的副本。如果想要在自己的 `serverfix` 分支上工作，可以将其简历在远程跟踪分支上：
 
     $ git checkout -b serverfix origin/serverfix
-    
+
     Branch serverfix set up to track remote branch serverfix from origin.
-    
+
     Switched to a new branch 'serverfix'
 
 ### 跟踪分支
@@ -384,17 +381,17 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 当使用 `git clone` 克隆一个仓库时，它通常会自动创建一个跟踪 `origin/master` 的 `master` 分支。可以手动设置其他跟踪分支/或者不跟踪。运行之前提过的命令 `git checkout -b [branch] [remotename]/[branch]` 来跟踪指定的分支，或者使用 `--track` 快捷方式：
 
     $ git checkout --track origin/serverfix
-    
+
     Branch serverfix set up to track remote branch serverfix from origin.
-    
+
     Switched to a new branch 'serverfix'
 
 如果需要将本地分支与远程分支设置不同的名字，可以运行：
 
     $ git checkout -b sf origin/serverfix
-    
+
     Branch sf set up to track remote branch serverfix from origin.
-    
+
     Switched to a new branch 'sf'
 
 此时，本地分支 `sf` 会自动从 `origin/master` 拉取。
@@ -402,22 +399,22 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 设置已有的本地分支跟踪一个远程分支，或者修改正在跟踪的上游分支，可以使用 `-u` 或 `--set-upstream-to` 选项运行 `git branch` 来手动指定：
 
     $ git branch -u origin/serverfix
-    
+
     Branch serverfix set up to track remote branch serverfix from origin.
 
 使用 `git branch -vv` 来查看设置的所有跟踪分支，以及更多信息：
 
     $ git branch -vv
-    
+
       iss53 7e424c3 [origin/iss53: ahead 2] forgot the brackets
-    
+
       master 1ae2a45 [origin/master] deploying index fix
-    
+
     * serverfix f8674d9 [teamone/server-fix-good: ahead 3, behind 1] this should do it
-    
+
       testing 5ea463a trying something new
 
-这里看到 `iss53` 分支正在跟踪 `origin/iss53` 并且 `ahead 2` 表示本地有两个提交没有推送到服务器；`master` 分支正在跟踪 `origin/master` 并且是最新的；`serverfix` 分支正在跟踪 `teamone` 服务器上的 `server-fix-good` 分支并且有3次修改未提交到服务器，服务器有1次提交没有拉取合并；`testing` 分支没有跟踪任何远程分支。
+这里看到 `iss53` 分支正在跟踪 `origin/iss53` 并且 `ahead 2` 表示本地有两个提交没有推送到服务器；`master` 分支正在跟踪 `origin/master` 并且是最新的；`serverfix` 分支正在跟踪 `teamone` 服务器上的 `server-fix-good` 分支并且有 3 次修改未提交到服务器，服务器有 1 次提交没有拉取合并；`testing` 分支没有跟踪任何远程分支。
 
 需要注意的是该命令是本地执行的，显示的是上一次连接服务器时的状态。如果需要最新数据，需要在运行此命令前抓取所有的远程仓库：
 
@@ -434,9 +431,9 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 通过带有 `--delete` 选项的 `git push` 命令来删除远程分支：
 
     $ git push origin --delete serverfix
-    
+
     To https://github.com/schacon/simplegit
-    
+
     - [deleted] serverfix
 
 ## 变基
@@ -455,9 +452,9 @@ Git 自动将 `serverfix` 分支名字展开为 `refs/heads/serverfix:refs/heads
 
     $ git checkout experiment
     $ git rebase master
-    
+
     First, rewinding head to replay your work on top of it...
-    
+
     Applying: added staged command
 
 原理是：首先找到这两个分支（当前分支 `experiment`、变基操作的目标基底分支 `master`）的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目标基底 C3，最后以此将之前另存为临时文件的修改依序应用。

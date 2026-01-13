@@ -2,9 +2,8 @@
 layout: post
 title: WriteUp - K8s Lan Party by wiz.io
 date: '2024-06-07 08:29:39'
-tags:
-- cloud
-- k8s
+categories: ["security", "cloud"]
+tags: ["cloud", "k8s"]
 ---
 
 > 本 WriteUp 大部分参考 [https://wiki.teamssix.com/cloudnative/kubernetes/wiz-k8s-lan-party-wp.html](https://wiki.teamssix.com/cloudnative/kubernetes/wiz-k8s-lan-party-wp.html#references)
@@ -35,7 +34,7 @@ tags:
     player@wiz-k8s-lan-party:~$ dnscan -subnet 10.100.*.*
     34899 / 65536 [->] 53.25% 987 p/s10.100.136.254 getflag-service.k8s-lan-party.svc.cluster.local.
     65356 / 65536 [->] 99.73% 989 p/s10.100.136.254 -> getflag-service.k8s-lan-party.svc.cluster.local.
-    player@wiz-k8s-lan-party:~$ 
+    player@wiz-k8s-lan-party:~$
 
 ### 访问服务
 
@@ -67,7 +66,7 @@ tags:
 
 ### 使用 tcpdump 捕获流量
 
-    layer@wiz-k8s-lan-party:~$ tcpdump host 10.100.171.123 -s 0 -A | grep wiz_k8s_lan_party 
+    layer@wiz-k8s-lan-party:~$ tcpdump host 10.100.171.123 -s 0 -A | grep wiz_k8s_lan_party
     tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
     listening on ns-d6d5f3, link-type EN10MB (Ethernet), snapshot length 262144 bytes
     wiz_k8s_lan_party{good-crime-comes-with-a-partner-in-a-sidecar}
@@ -176,39 +175,39 @@ tags:
 使用 gpt 解释提示中的 Istio IPTables rules 部分
 
     Istio 使用 iptables 规则来劫持流量,将其重定向到 sidecar 代理容器中的 Envoy 代理。以下是 Istio 中一些重要的 iptables 规则:
-    
+
     ## ISTIO_OUTPUT 链
-    
+
     这是 Istio 中最关键的 iptables 链,包含以下规则:
-    
-    1. 允许来自 Envoy 代理的本地流量 (源IP 127.0.0.6) 直接返回,不经过重定向。[4]
-    
-    2. 将目的地不是 localhost 且来自 UID 1337 (Envoy 代理)的流量重定向到 ISTIO_IN_REDIRECT 链。[4]
-    
+
+    1. 允许来自 Envoy 代理的本地流量 (源 IP 127.0.0.6) 直接返回，不经过重定向。[4]
+
+    2. 将目的地不是 localhost 且来自 UID 1337 (Envoy 代理) 的流量重定向到 ISTIO_IN_REDIRECT 链。[4]
+
     3. 允许目的地是 localhost 且不来自 UID 1337 的流量直接返回。[4]
-    
-    4. 允许来自 UID 1337 的流量直接返回,不重定向。[4]
-    
+
+    4. 允许来自 UID 1337 的流量直接返回，不重定向。[4]
+
     5. 将目的地不是 localhost 且来自 GID 1337 的流量重定向到 ISTIO_IN_REDIRECT 链。[4]
-    
-    6. 允许目的地是 localhost 且不来自 GID 1337 的流量直接返回。[4]  
-    
-    7. 允许来自 GID 1337 的流量直接返回,不重定向。[4]
-    
+
+    6. 允许目的地是 localhost 且不来自 GID 1337 的流量直接返回。[4]
+
+    7. 允许来自 GID 1337 的流量直接返回，不重定向。[4]
+
     8. 允许目的地是 localhost 的流量直接返回。[4]
-    
+
     9. 将所有其他流量重定向到 ISTIO_REDIRECT 链。[4]
-    
+
     ## ISTIO_REDIRECT 链
-    
+
     将流量重定向到 Envoy 代理的出站端口 15001。[4]
-    
-    ## ISTIO_IN_REDIRECT 链  
-    
+
+    ## ISTIO_IN_REDIRECT 链
+
     将流量重定向到 Envoy 代理的入站端口 15006。[1][2]
-    
-    这些 iptables 规则确保所有进出 pod 的流量都经过 Envoy 代理处理,实现了 Istio 的流量管理、安全控制等功能。规则中的 UID 1337 和 GID 1337 用于区分代理和应用程序流量。[4]
-    
+
+    这些 iptables 规则确保所有进出 pod 的流量都经过 Envoy 代理处理，实现了 Istio 的流量管理、安全控制等功能。规则中的 UID 1337 和 GID 1337 用于区分代理和应用程序流量。[4]
+
     Citations:
     [1] https://jimmysong.io/en/blog/istio-sidecar-traffic-types/
     [2] https://tetrate.io/blog/traffic-types-and-iptables-rules-in-istio-sidecar-explained/

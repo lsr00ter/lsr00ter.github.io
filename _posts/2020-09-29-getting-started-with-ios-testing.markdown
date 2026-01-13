@@ -2,10 +2,8 @@
 layout: post
 title: iOS App 测试笔记
 date: '2020-09-29 06:23:00'
-tags:
-- pentest
-- ios
-- hash-import-2023-03-22-16-36
+categories: ["security", "ios"]
+tags: ["pentest", "ios"]
 ---
 
 ## 设备越狱

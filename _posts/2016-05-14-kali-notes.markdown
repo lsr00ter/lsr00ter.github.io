@@ -2,10 +2,8 @@
 layout: post
 title: 捡垃圾的快乐 - Aruba AP（瘦 AP）刷机变家用 IAP（胖 AP）
 date: '2020-06-18 06:18:00'
-tags:
-- ap
-- aruba
-- hash-import-2023-03-22-16-36
+categories: ["homelab", "wifi"]
+tags: ["ap", "aruba"]
 ---
 
 由于现在无线设备越来越多，同时需要兼顾看电影、打游戏、办公、智能家居、NAS 下载等，所以感觉现有的无线路由器有点力不从心，就咸鱼 200 块淘了一个 Aruba 的 AP-203R，希望 MU-MIMO 能带来更好的体验。然后淘回来发现是个没办法单独使用的瘦 AP，查找了一番资料，发现可以刷机变成胖 AP 单独使用，这里做个记录。
@@ -15,6 +13,7 @@ tags:
 查看 aruba 官网相应版本的说明书（`AP-XXX_Install_Guide.pdf`），找到相应的 `Console Port` 说明信息，再查找推荐的 `AP-CBL-SERU cable` 信息，根据文档里的 `CONNECTOR` 去淘宝找相应的型号，根据文档提供的线序购买。
 
 <img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618174916.jpg" class="kg-image" alt="查询 Installation Guide" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175122.jpg" class="kg-image" alt="查看 Console Port 支持的线缆" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175155.jpg" class="kg-image" alt="查询相关线缆" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175252.jpg" class="kg-image" alt="查看线缆线序和新片" loading="lazy"><img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175301.jpeg" class="kg-image" alt="购买 Console 线" loading="lazy">
+
 ## 准备软件和资料
 
 - Serial（串口）连接软件（Windows: [Putty](https://www.chiark.greenend.org.uk/%7Esgtatham/putty/latest.html); macOS: [Serial.app](https://www.decisivetactics.com/products/serial/)）
@@ -24,6 +23,7 @@ tags:
 - **重要** ：关闭电脑防火墙
 - 启动 SolarWinds TFTP Server，显示如下：
 <img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175437.jpg" class="kg-image" alt="SolarWinds TFTP Server" loading="lazy">
+
 ## 启动 AP
 
 （使用的软件以 Windows 平台为例）首先断开 AP 的电源，把 AP 通过串口连接到电脑上，等待提示驱动安装成功后，打开 Putty，选择连接方式为 `Serial`，按照`开始菜单（右键） - 设备管理器`中显示的串口号，选择连接的串口，如 `COM1`，点击 `Open` 打开：
@@ -444,4 +444,3 @@ sublime 解决不能输入中文方法：
     http://www.th7.cn/system/lin/201508/127806.shtml //sublime text3
     http://www.blackmoreops.com/
     http://www.blackmoreops.com/2014/02/27/change-install-theme-kali-linux-gtk-3-themes/
-

@@ -1,11 +1,9 @@
 ---
 layout: post
-title: 捡垃圾的快乐 - Aruba AP（瘦AP）刷机变家用 IAP（胖AP）
+title: 捡垃圾的快乐 - Aruba AP（瘦 AP）刷机变家用 IAP（胖 AP）
 date: '2020-06-18 06:18:00'
-tags:
-- ap
-- aruba
-- hash-import-2023-03-22-16-36
+categories: ["homelab", "wifi"]
+tags: ["ap", "aruba"]
 ---
 
 由于现在无线设备越来越多，同时需要兼顾看电影、打游戏、办公、智能家居、NAS 下载等，所以感觉现有的无线路由器有点力不从心，就咸鱼 200 块淘了一个 Aruba 的 AP-203R，希望 MU-MIMO 能带来更好的体验。然后淘回来发现是个没办法单独使用的瘦 AP，查找了一番资料，发现可以刷机变成胖 AP 单独使用，这里做个记录。
@@ -22,7 +20,7 @@ tags:
 - 需要刷入 AP 的系统固件（如 `ArubaInstant_Vela_8.5.0.3_72498`，以及[其他固件](https://support.arubanetworks.com/Documentation/tabid/77/DMXModule/512/Default.aspx?EntryId=8868)）
 - 将固件移动到 TFTP Server 的根目录下，如 SolarWinds TFTP Server 的 `C:\TFTP-Root`
 - **重要** ：关闭电脑防火墙
-- 启动 SolarWinds TFTP Server ，显示如下：
+- 启动 SolarWinds TFTP Server，显示如下：
 <img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/pics/20200618175437.jpg" class="kg-image" alt="SolarWinds TFTP Server" loading="lazy">
 ## 启动 AP
 
@@ -61,13 +59,13 @@ tags:
       build string: ArubaOS version 6.5.2.0-6.5.2.0 for Vela (p4build@pr-hpn-build01) (gcc version 4.7.2) #59123 Fri Apr 7 09:37:25 AST 2017
              flags: Instant preserve
                oem: aruba
-    
+
     Image is signed; verifying checksum... passed
     SHA2 Signature available
     Signer Cert OK
     Policy Cert OK
     RSA signature verified using SHA2.
-    
+
     Partition 1:
         image type: 0
       machine type: 46
@@ -76,18 +74,18 @@ tags:
       build string: ArubaOS version 6.5.2.0-6.5.2.0 for Vela (p4build@pr-hpn-build01) (gcc version 4.7.2) #59123 Fri Apr 7 09:37:25 AST 2017
              flags: Instant preserve
                oem: aruba
-    
+
     Image is signed; verifying checksum... passed
     SHA2 Signature available
     Signer Cert OK
     Policy Cert OK
     RSA signature verified using SHA2.
-    
+
     apboot> clear os 0 # 清除分区 0 的系统
     apboot> upgrade os 0 ArubaInstant_Vela_8.5.0.3_72498 # os 0 分区刷入 TFTP Server 中的 ArubaInstant_Vela_8.5.0.3_72498 固件
-    
+
     # 当看到 Upgrade successful 表示刷入成功
-    
+
     apboot> factory_reset # ！重要：清除原来的配置
 
 > 建议将两个分区刷入同样的固件。

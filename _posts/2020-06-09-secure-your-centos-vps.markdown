@@ -2,10 +2,8 @@
 layout: post
 title: CentOS VPS 安全加固
 date: '2020-06-09 06:17:00'
-tags:
-- centos
-- vps
-- hash-import-2023-03-22-16-36
+categories: ["sysadmin", "hardening"]
+tags: ["harden", "centos", "vps"]
 ---
 
 由于正常上网和经常产生新的 idea 需要，手上的 VPS 越来越多，每次都要对新 VPS 进行安全加固，防止被黑。顺便记录常用加固项。
@@ -25,7 +23,7 @@ tags:
        Port port_number # 端口号
        User user # 登陆用户名
 
-如果记不住那么多机器的 alias ，可以写个脚本命令列出已经添加的配置，例如 `sshl` ，每次需要的显示一下敲一下就 OK 了。
+如果记不住那么多机器的 alias，可以写个脚本命令列出已经添加的配置，例如 `sshl` ，每次需要的显示一下敲一下就 OK 了。
 
     $ alias sshl='cat ~/.ssh/config | grep "Host "'
 
@@ -55,7 +53,7 @@ tags:
 
 ## 阻止错误密码尝试
 
-编辑 `/etc/pam.d/system-auth` 和 `/etc/pam.d/password-auth` 两个 PAM 配置文件（尝试3次错误锁定20分钟），添加下面两行进去
+编辑 `/etc/pam.d/system-auth` 和 `/etc/pam.d/password-auth` 两个 PAM 配置文件（尝试 3 次错误锁定 20 分钟），添加下面两行进去
 
     auth [default=die] pam_faillock.so authfail deny=3 unlock_time=1200 fail_interval=900
     auth required pam_faillock.so authsucc deny=3 unlock_time=1200 fail_interval=900
@@ -133,12 +131,12 @@ tags:
 ### 禁止空密码登录
 
     vim /etc/ssh/sshd_config:
-    
+
     PermitEmptyPasswords no
 
 ### 只允许 ssh proto 2
 
     vim /etc/ssh/sshd_config
-    
+
     Protocol 2
 

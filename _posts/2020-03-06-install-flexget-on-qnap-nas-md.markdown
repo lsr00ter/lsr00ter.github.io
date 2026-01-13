@@ -2,12 +2,8 @@
 layout: post
 title: 在 QNAP NAS 中安装 Flexget 并配置 RSS 订阅下载
 date: '2020-03-06 06:15:00'
-tags:
-- qnap
-- nas
-- rss-tag
-- flexget
-- hash-import-2023-03-22-16-36
+categories: ["homelab", "nas"]
+tags: ["qnap", "nas", "rss", "flexget"]
 ---
 
 Flexget 配合种子下载软件（Transmission/Deluge 等），可以根据 RSS 链接和配置文件，自动下载订阅的种子，或进行相应的过滤，不必总是去种子站守资源或者搜索。一般的 PT 站都提供 RSS 订阅下载功能，订阅下载资源非常方便。

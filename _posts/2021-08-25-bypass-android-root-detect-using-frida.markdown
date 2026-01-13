@@ -2,14 +2,11 @@
 layout: post
 title: 使用 Frida 绕过部分 ROOT 检测
 date: '2021-08-25 06:59:16'
-tags:
-- android
-- frida
-- bypass
-- hash-import-2023-03-22-16-36
+categories: ["security", "android"]
+tags: ["android", "frida", "bypass"]
 ---
 
-### 先使用 Frida 对 app 进行 hook
+## 先使用 Frida 对 app 进行 hook
 
     $ frida -U -f "app.example"
     # -U 使用 USB
@@ -19,7 +16,7 @@ tags:
     Spawned `app.example`. Use %resume to let the main thread start executing!
     # 成功 hook
 
-### 继续运行 app 触发 root 检测 crash
+## 继续运行 app 触发 root 检测 crash
 
     [Pixel::app.example]-> %resume
     # 出现 Exception:
@@ -33,7 +30,7 @@ tags:
     ***
     [Pixel::app.example]->
 
-### 通过 crash 信息定位问题点
+## 通过 crash 信息定位问题点
 
 crash 信息中有用的部分：
 
@@ -52,17 +49,17 @@ crash 信息中有用的部分：
                 if(v3 != null && v3.length > 0) {
                     v0 = AppInfoUtils.getSignatureString(v3[0], "MD5");
                 }
-    
+
                 if(AppInfoUtils.checkSignature(v0)) {
                     return;
                 }
-    
+
                 throw new RuntimeException("应用签名不匹配，存在篡改风险");
             }
-    
+
             throw new RuntimeException("该手机已被root，存在安全隐患");
         }
-    
+
         @Override // android.app.Application
         public void onCreate() {
             super.onCreate();
@@ -71,7 +68,7 @@ crash 信息中有用的部分：
         }
     }
 
-### 反编译修改代码
+## 反编译修改代码
 
 使用 apktool 反编译
 
@@ -91,7 +88,7 @@ crash 信息中有用的部分：
 
 将 `throw p1` 修改为 `return-void`，重新打包签名安装。
 
-### apk 重签名
+## apk 重签名
 
 - 生成签名证书（v1 证书，通用）
 

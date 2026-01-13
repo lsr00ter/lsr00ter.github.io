@@ -2,12 +2,8 @@
 layout: post
 title: WINDOWS CMD 命令行下载文件的几种方法
 date: '2020-10-01 06:24:00'
-tags:
-- pentest
-- windows
-- cmd
-- lolbin
-- hash-import-2023-03-22-16-36
+categories: ["security", "windows"]
+tags: ["pentest", "windows", "cmd", "lolbin"]
 ---
 
 ## certutil

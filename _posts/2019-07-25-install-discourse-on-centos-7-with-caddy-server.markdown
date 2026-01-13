@@ -2,11 +2,8 @@
 layout: post
 title: 在 CentOS 上使用 Caddy 运行 Discourse 踩坑记
 date: '2019-07-25 06:12:00'
-tags:
-- centos
-- caddy
-- discourse
-- hash-import-2023-03-22-16-36
+categories: ["sysadmin", "discourse"]
+tags: ["centos", "caddy", "discourse"]
 ---
 
 因为想体验下论坛，所以在自己 VPS 上安装了 Discourse，这个号称论坛下一个十年的服务。

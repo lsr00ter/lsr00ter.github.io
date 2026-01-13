@@ -3,8 +3,8 @@ layout: post
 title: 使用 Microsoft Dev Tunnels 作为 C2 前置转发服务
 slug: using-ms-dev-tunnel-as-c2-frontend
 date: '2024-04-22 12:00:22'
-tags:
-- c2
+categories: ["security", "c2"]
+tags: ["c2", "tunnel"]
 ---
 
 > [[https://redsiege.com/blog/2024/04/using-microsoft-dev-tunnels-for-c2-redirection/](https://redsiege.com/blog/2024/04/using-microsoft-dev-tunnels-for-c2-redirection/)]

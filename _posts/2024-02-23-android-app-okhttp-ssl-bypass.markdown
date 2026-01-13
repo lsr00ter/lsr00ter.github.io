@@ -2,6 +2,8 @@
 layout: post
 title: Android App 绕过 OkHttp SSL 证书校验抓包
 date: '2024-02-23 10:16:34'
+categories: ["security", "android"]
+tags: ["android", "bypass"]
 ---
 
 > 针对 OkHttp
@@ -14,7 +16,7 @@ OkHttp 是 Square 公司开发的一个开源网络请求库，适用于 Android
 
 - 未安装 burpsuite 证书
 
-打开浏览器，访问 neverssl.com 正常显示，访问 **https** 网站比如 www.baidu.com 提示不安全
+打开浏览器，访问 neverssl.com 正常显示，访问 **https** 网站比如 <www.baidu.com> 提示不安全
 
 - 用户模式安装 ssl 证书
 
@@ -30,6 +32,7 @@ OkHttp 是 Square 公司开发的一个开源网络请求库，适用于 Android
 
 Apk 拖入任何反编译软件如 jd-gui 然后查看包中是否存在 okhttp3 库，如果存在大概率使用了 OkHttp 处理所有网络连接请求
 ![](assets/img/blog/imported/android-app-okhttp-ssl-bypass-CleanShot-2024-02-23-at-11.27.13.png)
+
 ### 绕过 SSL Pinning
 
 手机端安装 magisk + frida-server, 电脑端安装 frida, frida-tools, objection
@@ -44,8 +47,7 @@ Apk 拖入任何反编译软件如 jd-gui 然后查看包中是否存在 okhttp3
 
 opt 1:
 
-    $ frida --codeshare federicodotta/okhttp3-pinning-bypass -f YOUR_BINARY
-    
+    frida --codeshare federicodotta/okhttp3-pinning-bypass -f YOUR_BINARY
 
 opt 2:
 

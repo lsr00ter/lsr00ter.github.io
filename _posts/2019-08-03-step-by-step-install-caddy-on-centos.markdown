@@ -2,11 +2,8 @@
 layout: post
 title: 在 CentOS 上安装 Caddy 服务
 date: '2019-08-03 06:14:00'
-tags:
-- centos
-- caddy
-- webserver
-- hash-import-2023-03-22-16-36
+categories: ["sysadmin", "webserver"]
+tags: ["centos", "caddy", "webserver"]
 ---
 
 ## 安装
@@ -101,5 +98,5 @@ _现在还不能正常成功启动 Caddy，因为还没有配置网站参数信�
     # 查看运行状态
     sudo systemctl status caddy -l
 
-如果提示自动加载证书失败,可以使用 [CertBot](https://certbot.eff.org/) 手动申请证书。
+如果提示自动加载证书失败，可以使用 [CertBot](https://certbot.eff.org/) 手动申请证书。
 

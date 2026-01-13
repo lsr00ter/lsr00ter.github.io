@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 持久化 - SCM
+title: Windows 持久化 - SCM
 date: '2023-04-22 07:53:23'
-tags:
-- persistence
+categories: ["security", "persistence"]
+tags: ["persistence", "windows"]
 ---
 
 SCM 是 Windows 操作系统中的服务控制管理器（Service Control Manager）的缩写。SCM 是 Windows 操作系统的一个重要组件，它负责启动、停止和管理 Windows 服务，这些服务可以是操作系统自带的服务，也可以是第三方应用程序的服务。SCM 还可以监控服务的运行状态，并在服务出现故障时自动重启服务。
@@ -45,18 +45,18 @@ SCM 是 Windows 操作系统中的服务控制管理器（Service Control Manage
 
 <!--kg-card-begin: html-->
 
-| D | `Discretionary Access Control List`  
+| D | `Discretionary Access Control List`
 自主访问控制列表 |
-| A | `Access Control Entry – Access Allowed`  
+| A | `Access Control Entry – Access Allowed`
 访问控制条目 - 允许访问 |
-| KA | 
+| KA |
 
 `KEY_ALL_ACCESS – Rights`
 
 `KEY_ALL_ACCESS - 权限`
 
  |
-| WD | `Security Principal of Everyone Group`  
+| WD | `Security Principal of Everyone Group`
 Everyone 组的安全策略 |
 
 <!--kg-card-end: html-->

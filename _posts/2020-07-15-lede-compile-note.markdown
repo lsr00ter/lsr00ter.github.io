@@ -2,10 +2,8 @@
 layout: post
 title: LEDE 旁路由 x86 固件定制记录
 date: '2020-07-15 06:20:00'
-tags:
-- openwrt
-- lede
-- hash-import-2023-03-22-16-36
+categories: ["homelab", "openwrt"]
+tags: ["openwrt", "lede"]
 ---
 
 在使用了几年 Linksys WRT1200AC 安装 OpenWrt 固件，用来正常上网后，这两年手头需要正常上网的设备越来越多（Netflix、Apple TV+、美区 iCloud 同步等），终于感觉网速有点不够用了，于是在 NAS 的虚拟机里安装了 LEDE 作为旁路由。在连续多次编译了 lean 大佬的 lede 固件，尝试做到了对于 **单网口旁路由** 来说使用最佳，然后记录了更方便进行再次编译的配置方式。
@@ -74,7 +72,7 @@ tags:
     uci set system.@system[0].zonename=Asia/Shanghai
     uci set system.@system[0].hostname=LEDE
     uci commit system
-    
+
     uci set network.lan.ipaddr='192.168.1.254'
     uci set network.lan.proto='static'
     uci set network.lan.type='bridge'
@@ -83,7 +81,7 @@ tags:
     uci set network.lan.gateway='192.168.1.1'
     uci set network.lan.dns='192.168.1.1'
     uci commit network
-    
+
     ...
 
 ### 接着输入编译命令
@@ -108,7 +106,7 @@ tags:
     luci-app-sfe # Turbo ACC 网络加速(开启 Fast Path 转发加速)
     luci-app-unblockNeteaseMusic # 解锁网易云
     luci-app-ssr-plus
-    
+
     # 附加应用，按需选择
     luci-app-wol # 网络唤醒
     luci-app-accesscontrol # 上网时间控制
@@ -144,14 +142,14 @@ tags:
 
 ### 继续编译命令
 
-1. `make -j8 download V=s` 下载dl库（国内请尽量全局科学上网）
+1. `make -j8 download V=s` 下载 dl 库（国内请尽量全局科学上网）
 2. 输入 `make -j1 V=s` （`-j1` 后面数字`1`是线程数。第一次编译推荐用单线程）进行编译你要的固件。
 
 **编译完成后固件在 `./bin/targets/` 文件夹内。**
 
 ## 使用 Github 的 Action 功能自动编译
 
-> 参考[【教程】会本地编译的情况下，怎么用GitHub Actions云编译？](https://github.com/coolsnowwolf/lede/issues/2288)
+> 参考[【教程】会本地编译的情况下，怎么用 GitHub Actions 云编译？](https://github.com/coolsnowwolf/lede/issues/2288)
 
 以 `lede` 自带的 Action 为例来修改。文件路径为 `./.github/workflows/openwrt-ci.yml`。
 
@@ -212,18 +210,18 @@ tags:
               CONFIG_PACKAGE_luci-app-ipsec-vpnd=m
               CONFIG_PACKAGE_luci-app-nlbwmon=m
               CONFIG_PACKAGE_luci-app-ramfree=m
-    
+
               ...
               # 省略一部分配置信息
               ...
-    
+
               #
               # ========================固件定制部分结束========================
               #
               EOF
               sed -i 's/^[\t]*//g' ./.config
               make defconfig
-    
+
               # 固件网络配置
               sed -i "10i # network config" ./package/lean/default-settings/files/zzz-default-settings
               # 默认 IP 地址，旁路由时不会和主路由的 192.168.1.1 冲突

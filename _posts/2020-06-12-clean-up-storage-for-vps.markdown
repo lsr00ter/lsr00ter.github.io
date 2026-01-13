@@ -2,11 +2,8 @@
 layout: post
 title: 查找并清理 Linux 的存储空间
 date: '2020-06-12 06:18:00'
-tags:
-- centos
-- vps
-- linux
-- hash-import-2023-03-22-16-36
+categories: ["sysadmin", "linux"]
+tags: ["centos", "vps", "linux"]
 ---
 
 最近 VPS 磁盘空间一直警告不够用，就想看一下哪个文件占用空间比较大，删掉一些不用的大文件，腾出可用空间来。
@@ -36,7 +33,7 @@ tags:
     4.0K .bashrc
     4.0K .ssh
     4.0K .wget-hsts
-    
+
     $ du -sh /usr/[!.]* # 查看 /usr/ 目录下各个子目录大小
     202M /usr/bin
     0 /usr/games
@@ -92,10 +89,10 @@ tags:
 ## Mysql 日志自动清理
 
     # vim /etc/my.cnf
-    
+
     #日志超过3天自动过期
     expire_logs_days = 3
-    
+
     # sudo systemctl restart mysqld
 
 > [https://blog.csdn.net/lk\_db/article/details/78341698](https://blog.csdn.net/lk_db/article/details/78341698)

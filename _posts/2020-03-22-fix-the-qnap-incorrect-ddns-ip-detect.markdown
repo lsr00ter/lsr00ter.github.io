@@ -2,9 +2,8 @@
 layout: post
 title: Apple News 国内极简使用指南
 date: '2019-05-30 06:09:00'
-tags:
-- apple
-- hash-import-2023-03-22-16-36
+categories: ["apps", "apple"]
+tags: ["apple"]
 ---
 
 <img src="https://raw.githubusercontent.com/5cr1pt/img4markdown/master/15591142960108/15591143208187.jpg" class="kg-image" alt loading="lazy">

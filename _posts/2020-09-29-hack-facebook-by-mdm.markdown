@@ -2,9 +2,8 @@
 layout: post
 title: 学习：通过寻找 MobileIron MDM 上的远程代码执行漏洞黑进 Facebook
 date: '2020-09-29 06:24:00'
-tags:
-- pentest
-- hash-import-2023-03-22-16-36
+categories: ["security", "pentest"]
+tags: ["pentest"]
 ---
 
 ## 整理 MobileIron
@@ -15,7 +14,7 @@ tags:
 
 下载的版本是 2018 年初版。
 
-MobileIron 使用 Java 开发，对外开放 443，8443， 9997 端口，各个端口的功能如下：
+MobileIron 使用 Java 开发，对外开放 443，8443，9997 端口，各个端口的功能如下：
 
 - 443 為使用者裝置註冊介面
 - 8443 為設備管理介面
@@ -107,14 +106,14 @@ Web Service 使用了 Hessian 格式处理资料，而产生了反序列化漏�
 
 猜想：
 
-> 作者評估過把 Groovy 當成利用鏈的可行性，雖然被限制住了，但一定覺得有機會才會寫進論文中!
+> 作者評估過把 Groovy 當成利用鏈的可行性，雖然被限制住了，但一定覺得有機會才會寫進論文中！
 
 从这个猜想触发，虽然 Groovy 的利用链被 `readResolve()` 限制住了，但是目标版本的 Groovy 比较旧，有可能还没进行限制。
 
 比较 Groovy-1.5.6 和最新版本关于 `groovy/runtime/MethodClosure.java` 中 `readSolve()` 的实现：
 
     $ diff 1_5_6/MethodClosure.java 3_0_4/MethodClosure.java
-    
+
     > private Object readResolve() {
     > if (ALLOW_RESOLVE) {
     > return this;

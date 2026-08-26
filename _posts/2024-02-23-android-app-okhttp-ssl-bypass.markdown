@@ -31,7 +31,7 @@ OkHttp 是 Square 公司开发的一个开源网络请求库，适用于 Android
 ### 快速确认 App 是否使用 OkHttp
 
 Apk 拖入任何反编译软件如 jd-gui 然后查看包中是否存在 okhttp3 库，如果存在大概率使用了 OkHttp 处理所有网络连接请求
-![](assets/img/blog/imported/android-app-okhttp-ssl-bypass-CleanShot-2024-02-23-at-11.27.13.png)
+![反编译后的 APK 包树中包含 okhttp3 库](assets/img/blog/imported/android-app-okhttp-ssl-bypass-CleanShot-2024-02-23-at-11.27.13.png)
 
 ### 绕过 SSL Pinning
 

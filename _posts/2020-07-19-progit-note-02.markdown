@@ -471,7 +471,14 @@ glob 模式是指 shell 所使用的简化了的正则表达式。
 
 ### 查看远程仓库
 
-使用 `git remote` 命令查看已经配置了的远程仓库服务器。如果你试着在自己克隆的项目目录运行 `git remote` 那么至少能看到 `origin`：这是 Git 给克隆的仓库服务器的默认名字： ```bash $ git clone https://github.com/schacon/ticgit $ cd ticgit $ git remote
+使用 `git remote` 命令查看已经配置了的远程仓库服务器。如果你试着在自己克隆的项目目录运行 `git remote`，那么至少能看到 `origin`：这是 Git 给克隆的仓库服务器的默认名字：
+
+```bash
+$ git clone https://github.com/schacon/ticgit
+$ cd ticgit
+$ git remote
+origin
+```
 
 使用 `git remote -v` 会显示远程仓库的 Git 简写以及对应的 URL。
 
@@ -514,8 +521,12 @@ glob 模式是指 shell 所使用的简化了的正则表达式。
 
     $ git remote
     origin
-    $ git remote add pb https://github.com/paulboone/ticgit $ git remote -v
-    origin https://github.com/schacon/ticgit (fetch) origin https://github.com/schacon/ticgit (push) pb https://github.com/paulboone/ticgit (fetch) pb https://github.com/paulboone/ticgit (push)
+    $ git remote add pb https://github.com/paulboone/ticgit
+    $ git remote -v
+    origin https://github.com/schacon/ticgit (fetch)
+    origin https://github.com/schacon/ticgit (push)
+    pb https://github.com/paulboone/ticgit (fetch)
+    pb https://github.com/paulboone/ticgit (push)
 
 以后就可以使用 `pb` 来代替整个 URL。如想要拉取 paulboone 的仓库，只需要输入：
 
@@ -735,4 +746,3 @@ Git 并不会在你输入部分命令时自动推断你想要的命令。如果�
     $ git config --global alias.br branch
 
 这意味着，当你需要输入 `git commit` 命令时，只需要输入 `git ci`。
-

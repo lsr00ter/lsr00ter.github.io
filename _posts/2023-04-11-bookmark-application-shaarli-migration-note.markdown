@@ -17,12 +17,19 @@ tags: ["selfhost"]
 
     docker run --detach \
                --name myshaarli \
-               --publish 8080:80 \ # 映射 80 端口到外部 8080 端口
-               -d \ # 后台运行
-               --rm \ # 停止时删除容器
-               --volume shaarli-data:/var/www/shaarli/data \ # 通过挂载 volume 持久化
+               --publish 8080:80 \
+               --rm \
+               --volume shaarli-data:/var/www/shaarli/data \
                --volume shaarli-cache:/var/www/shaarli/cache \
-               ghcr.io/shaarli/shaarli::release # 新版修改了镜像地址到 ghcr.io
+               ghcr.io/shaarli/shaarli:release
+
+其中：
+
+- `--publish 8080:80`：映射 80 端口到外部 8080 端口
+- `--detach`：后台运行
+- `--rm`：停止时删除容器
+- `--volume`：通过挂载 volume 持久化
+- `ghcr.io/shaarli/shaarli:release`：新版修改了镜像地址到 ghcr.io
 
 ## 导入原始数据
 

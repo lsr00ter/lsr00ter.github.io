@@ -13,7 +13,7 @@ tags: ["android", "capture", "ssl"]
 
 ## 0x00 设备上设置代理
 
-<img src="assets/img/blog/imported/android-app-traffic-capture-skill-merge.png" class="kg-image" alt loading="lazy">
+<img src="assets/img/blog/imported/android-app-traffic-capture-skill-merge.png" class="kg-image" alt="Android Wi-Fi 高级设置中将 EvilCorp_5G 的代理设为 192.168.1.100:8080" loading="lazy">
 ## 0x01 配置 Proxy Listener
 
 在 Burpsuite 上依次点击 `Proxy -> Options -> Edit (Proxy Listeners)` 然后设置监听接口和监听端口：
@@ -21,18 +21,21 @@ tags: ["android", "capture", "ssl"]
     Bind to port: 8080
     Bind to address: All interfaces
 
-<img src="assets/img/blog/imported/android-app-traffic-capture-skill-DraggedImage.png" class="kg-image" alt loading="lazy">
+<img src="assets/img/blog/imported/android-app-traffic-capture-skill-DraggedImage.png" class="kg-image" alt="Burp Suite Proxy Listener 绑定 8080 端口和所有网络接口" loading="lazy">
 ## 0x02 检查设备是否成功连接代理
 
 在设备上用浏览器打开 [http://burp](http://burp) 应该会看到 Burpsuite 的欢迎页面：
 
-<img src="assets/img/blog/imported/android-app-traffic-capture-skill-image.png" class="kg-image" alt loading="lazy" >
+<img src="assets/img/blog/imported/android-app-traffic-capture-skill-image.png" class="kg-image" alt="Android 浏览器访问 http://burp 后显示 Burp Suite Professional 欢迎页" loading="lazy" >
 
 如果加载失败，下面是几种解决的思路：
 
 - 设置一个新的 Wi-Fi 热点并连接
 - 使用 adb 通过 USB 进行代理
-  – 将设备代理设置为 `127.0.0.1:8080`– 设备使用 USB 连接电脑– 执行 `adb reverse tcp:8080 tcp:8080` 将设备 `8080` 端口的流量转发到电脑的 `8080` 端口– 再次打开 `http://burp` 或者 `http://127.0.0.1:8080` 应该可以看到 Burpsuite 的欢迎页
+  - 将设备代理设置为 `127.0.0.1:8080`
+  - 设备使用 USB 连接电脑
+  - 执行 `adb reverse tcp:8080 tcp:8080` 将设备 `8080` 端口的流量转发到电脑的 `8080` 端口
+  - 再次打开 `http://burp` 或者 `http://127.0.0.1:8080`，应该可以看到 Burpsuite 的欢迎页
 
 ## 0x03 验证是否可以代理抓包 HTTP 流量
 
@@ -44,14 +47,19 @@ tags: ["android", "capture", "ssl"]
 
 - 访问 [http://burp](http://burp) 点击右上角 `CA Certificate` 下载 Burpsuite 的证书
 - 将证书 `.der` 重命名为 `.crt` 文件
-  – 在文件管理器中找到下载的文件并修改后缀– 使用命令 `adb shell mv /sdcard/Download/cacert.der /sdcard/Download/cacert.crt` 修改后缀
+  - 在文件管理器中找到下载的文件并修改后缀
+  - 使用命令 `adb shell mv /sdcard/Download/cacert.der /sdcard/Download/cacert.crt` 修改后缀
 - 在设备上打开证书文件进行安装
 
 ## 0x05 将 Burpsuite 证书安装为系统根证书
 
 - 把证书文件移动到系统证书位置：`/system/etc/security/cacerts`
 - 使用 Magisk
-  1. 安装 Magisk 模块 [https://github.com/NVISOsecurity/MagiskTrustUserCerts](https://github.com/NVISOsecurity/MagiskTrustUserCerts)2. 重启设备让 Magisk 模块生效 3. 正常安装证书 4. 重启设备 5. 完成后可以在系统根证书部分看到该证书
+  1. 安装 Magisk 模块 [MagiskTrustUserCerts](https://github.com/NVISOsecurity/MagiskTrustUserCerts)
+  2. 重启设备让 Magisk 模块生效
+  3. 正常安装证书
+  4. 重启设备
+  5. 完成后可以在系统根证书部分看到该证书
 
 ## 0x06 正确设置证书有效期
 

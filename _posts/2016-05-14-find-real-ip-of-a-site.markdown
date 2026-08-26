@@ -81,6 +81,6 @@ tags: ["pentest"]
 
 2 phpinfo
 
-3 经常用 ping xxx.com 代替 ping [www.xxx.com，然后 ping 子域，再 nslookup](http://www.xxx.com,%E7%84%B6%E5%90%8Eping%E5%AD%90%E5%9F%9F,%E5%86%8Dnslookup)
+3 经常用 ping xxx.com 代替 ping [www.xxx.com](http://www.xxx.com)，然后 ping 子域，再 nslookup
 
 _有的服务器本地自带 sendmail... &nbsp;注册之后，会主动发一封邮件给我们。。。好吧。。打开邮件的源代码。。你就能看到服务器的真实 Ip 了。。。有的大型互联网网站会有自己的 Mailserver...应该也是处在一个网段吧？？ &nbsp;那个网段打开 80 的一个一个试。。。哈哈。。_

@@ -51,11 +51,11 @@ app 下载后使用 `unzip target_app_name` 解压 app。
 2. 搜索并安装 **`CrackerXI`**
 3. 打开 App： **`CrackerXI`**
 4. 点击右上角设置图标，开启 `Hook`
-<img src="assets/img/blog/imported/getting-started-with-ios-testing-image.png" class="kg-image" alt loading="lazy" >
+<img src="assets/img/blog/imported/getting-started-with-ios-testing-image.png" class="kg-image" alt="CrackerXI 设置页，CrackerXI Hook 已开启" loading="lazy" >
 
 5. 主界面点击需要 Dump 的 App，选择 Full IPA
 
-<img src="assets/img/blog/imported/getting-started-with-ios-testing-image-1.png" class="kg-image" alt loading="lazy" >
+<img src="assets/img/blog/imported/getting-started-with-ios-testing-image-1.png" class="kg-image" alt="CrackerXI 提示选择将 WeChat 解密为 Full IPA 或 Binary Only" loading="lazy" >
 
 6. Dump 的 IPA 文件保存在 `/var/mobile/Documents/CrackerXI/` 文件夹内
 
@@ -100,4 +100,3 @@ app 下载后使用 `unzip target_app_name` 解压 app。
 > [Getting started with iOS testing](https://cornerpirate.com/2020/09/22/getting-started-with-ios-testing/)
 
 > [移动应用安全基础篇——绕过 iOS 越狱检测 - FreeBuf 网络安全行业门户](https://www.freebuf.com/column/201114.html)
-

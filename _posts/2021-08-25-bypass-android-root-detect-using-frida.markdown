@@ -39,7 +39,7 @@ crash 信息中有用的部分：
 
 代码中找到该模块：
 
-<img src="assets/img/blog/imported/bypass-android-root-detect-using-frida-DraggedImage.png" class="kg-image" alt loading="lazy">
+<img src="assets/img/blog/imported/bypass-android-root-detect-using-frida-DraggedImage.png" class="kg-image" alt="JEB 反编译器中的 EsApplication.appSecurityCheck 方法及 EsRomUtil.isRoot 检测" loading="lazy">
 
     public class EsApplication extends Application {
         private void appSecurityCheck(String arg3) {
@@ -121,4 +121,3 @@ crash 信息中有用的部分：
 
     $ adb install new-signed.apk
     # 安装前需要卸载原来的 app
-

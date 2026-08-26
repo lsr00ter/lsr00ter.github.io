@@ -60,7 +60,7 @@ Cydia Repo: [https://repo.packix.com/](https://repo.packix.com/)
 
 ## TsProtector 8+
 
-Cydia Repo: [https://typ0s2d10.appspot.com/repo/](https://typ0s2d10.appspot.com/repo/)
+Cydia 软件包归档：[TsProtector 8+](http://cydia.saurik.com/package/kr.typostudio.tsprotector8)
 
 > iOS 8 上效果好
 

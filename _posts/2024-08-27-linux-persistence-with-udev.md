@@ -2,7 +2,7 @@
 layout: post
 title: Linux 持久化 - udev
 description: Leveraging Linux udev for persistence
-date: '2024-06-07 08:29:39'
+date: '2024-08-27 08:29:39'
 categories: ["security", "persistence"]
 tags: ["persistence", "linux"]
 ---

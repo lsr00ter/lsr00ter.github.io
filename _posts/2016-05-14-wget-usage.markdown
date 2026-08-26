@@ -25,7 +25,7 @@ tags: ["linux"]
     -L 递归时不进入其它主机，如 wget -c -r www.xxx.org/
 
 如果网站内有一个这样的链接：
-[www.yyy.org，不加参数-L，就会像大火烧山一样，会递归下载 www.yyy.org 网站](http://www.yyy.org%EF%BC%8C%E4%B8%8D%E5%8A%A0%E5%8F%82%E6%95%B0-L%EF%BC%8C%E5%B0%B1%E4%BC%9A%E5%83%8F%E5%A4%A7%E7%81%AB%E7%83%A7%E5%B1%B1%E4%B8%80%E6%A0%B7%EF%BC%8C%E4%BC%9A%E9%80%92%E5%BD%92%E4%B8%8B%E8%BD%BDwww.yyy.org%E7%BD%91%E7%AB%99)
+[www.yyy.org](http://www.yyy.org)，不加参数 `-L`，就会像大火烧山一样，会递归下载 www.yyy.org 网站。
 
     -p 下载网页所需的所有文件，如图片等
     -A 指定要下载的文件样式列表，多个样式用逗号分隔

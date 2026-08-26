@@ -315,7 +315,7 @@ The relevant HTTP path for mutate requests is typically `/mutate`.
 
     ./kube-review create mutate.yaml
 
-![](assets/img/blog/imported/writeup-k8s-lan-party-by-wiz.io-Pasted-image-20240607154336.png)
+![kube-review 生成的 Pod 创建 AdmissionReview JSON 请求](assets/img/blog/imported/writeup-k8s-lan-party-by-wiz.io-Pasted-image-20240607154336.png)
 保存转换后的数据到线上靶场 `post.json`
 
 ### 执行 mutate
@@ -324,7 +324,7 @@ The relevant HTTP path for mutate requests is typically `/mutate`.
     {"kind":"AdmissionReview","apiVersion":"admission.k8s.io/v1","request":{"uid":"efdec7a8-81ba-46dd-bcda-c77ba875cac5","kind":{"group":"","version":"v1","kind":"Pod"},"resource":{"group":"","version":"v1","resource":"pods"},"requestKind":{"group":"","version":"v1","kind":"Pod"},"requestResource":{"group":"","version":"v1","resource":"pods"},"name":"apply-flag-to-env","namespace":"sensitive-ns","operation":"CREATE","userInfo":{"username":"kube-review","uid":"bd1261ef-efab-4f4b-aba3-805929653144"},"object":{"kind":"Pod","apiVersion":"v1","metadata":{"name":"apply-flag-to-env","namespace":"sensitive-ns","creationTimestamp":null},"spec":{"containers":[{"name":"nginx","image":"nginx","resources":{}}]},"status":{}},"oldObject":null,"dryRun":true,"options":{"kind":"CreateOptions","apiVersion":"meta.k8s.io/v1"}},"response":{"uid":"efdec7a8-81ba-46dd-bcda-c77ba875cac5","allowed":true,"patch":"W3sib3AiOiJhZGQiLCJwYXRoIjoiL3NwZWMvY29udGFpbmVycy8wL2VudiIsInZhbHVlIjpbeyJuYW1lIjoiRkxBRyIsInZhbHVlIjoid2l6X2s4c19sYW5fcGFydHl7eW91LWFyZS1rOHMtbmV0LW1hc3Rlci13aXRoLWdyZWF0LXBvd2VyLXRvLW11dGF0ZS15b3VyLXdheS10by12aWN0b3J5fSJ9XX0sIHsicGF0aCI6Ii9tZXRhZGF0YS9hbm5vdGF0aW9ucyIsIm9wIjoiYWRkIiwidmFsdWUiOnsicG9saWNpZXMua3l2ZXJuby5pby9sYXN0LWFwcGxpZWQtcGF0Y2hlcyI6ImluamVjdC1lbnYtdmFycy5hcHBseS1mbGFnLXRvLWVudi5reXZlcm5vLmlvOiBhZGRlZCAvc3BlYy9jb250YWluZXJzLzAvZW52XG4ifX1d","patchType":"JSONPatch"}}
 
 获取 response
-![](assets/img/blog/imported/writeup-k8s-lan-party-by-wiz.io-Pasted-image-20240607154530.png)
+![Kyverno AdmissionReview 响应允许请求并返回 Base64 编码的 JSONPatch](assets/img/blog/imported/writeup-k8s-lan-party-by-wiz.io-Pasted-image-20240607154530.png)
 
 ### 解码
 

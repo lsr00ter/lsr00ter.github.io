@@ -1,20 +1,12 @@
-#!/bin/bash
-set -e
-filename=$(date +%Y-%m-%d-new-post.md)
-if [ $# -gt 0 ]; then
-    filename=$(date +%Y-%m-%d-)
-    title=$(echo "$@")
-    filename+=$(echo "$@" | sed -e 's/ /-/g').md
-else
-    filename=$(date +%Y-%m-%d-new-post.md)
+#!/usr/bin/env bash
+set -euo pipefail
+
+if (( $# == 0 )); then
+  echo "Usage: $(basename "$0") TITLE" >&2
+  exit 64
 fi
-cat >$filename <<EOF
----
-layout: post
-title: $title
-description: A description
-date: '$(date '+%Y-%m-%d %H:%M:%S')'
-categories: ["category"]
-tags: ["tag"]   # TAG names should always be lowercase
----
-EOF
+
+repo_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+cd "$repo_dir"
+
+exec bundle exec jekyll post "$*"

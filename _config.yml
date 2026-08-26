@@ -6,7 +6,7 @@ theme: jekyll-theme-chirpy
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: zh
+lang: zh-CN
 
 # Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Shanghai
@@ -28,14 +28,12 @@ url: "https://lsr00ter.github.io"
 github:
   username: lsr00ter # change to your github username
 
-twitter:
-  username:  # change to your twitter username
-
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Memory Leak
   email: host.jayce@gmail.com # change to your email address
+  fediverse_handle: # fill in your fediverse handle. E.g. "@username@domain.com"
   links:
     # The first element serves as the copyright owner's link
     # - https://twitter.com/username # change to your twitter homepage
@@ -70,6 +68,8 @@ analytics:
     domain: # fill in your Matomo domain
   cloudflare:
     id: # fill in your Cloudflare Web Analytics token
+  fathom:
+    id: # fill in your Fathom Site ID
 
 # Pageviews settings
 pageviews:
@@ -100,10 +100,17 @@ avatar: assets/img/avatar.jpg
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
-social_preview_image: # string, local or CORS resources
+social_preview_image: assets/img/avatar.jpg
 
 # boolean type, the global switch for TOC in posts.
 toc: true
+
+actions:
+  # Display "Edit this post" action on each post page to encourage contributions.
+  edit_post:
+    enabled: false
+    url: ""
+    static_url: false
 
 comments:
   # Global switch for the post comment system. Keeping it empty means disabled.
@@ -169,6 +176,13 @@ collections:
     output: true
     sort_by: order
 
+jekyll_compose:
+  default_front_matter:
+    posts:
+      description: A description
+      categories: ["category"]
+      tags: ["tag"]
+
 defaults:
   - scope:
       path: "" # An empty string here means all files in the project
@@ -190,15 +204,6 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-  - scope:
-      path: assets/img/favicons
-    values:
-      swcache: true
-  - scope:
-      path: assets/js/dist
-    values:
-      swcache: true
-
 sass:
   style: compressed
 
@@ -218,10 +223,9 @@ exclude:
   - tools
   - README.md
   - LICENSE
+  - purgecss.js
   - "*.config.js"
-  - gulpfile.js
-  - node_modules
-  - package*.json
+  - "package*.json"
 
 jekyll-archives:
   enabled: [categories, tags]
@@ -231,13 +235,3 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
-
-jekyll-seo-tag:
-  default:
-    name: "Memory Leak"
-    description: "Yes another blog, for pentesting and security related."
-    image: "assets/img/avatar.jpg"

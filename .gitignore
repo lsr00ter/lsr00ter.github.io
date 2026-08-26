@@ -17,13 +17,18 @@ package-lock.json
 
 # IDE configurations
 .idea
-.vscode
+.vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+!.vscode/tasks.json
 
 # Misc
-_sass/dist
+_sass/vendors
 assets/js/dist
+
+# Hidden system files
+*~
+Thumbs.db
 
 # General
 .DS_Store
